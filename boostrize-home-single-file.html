@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Boostrize: grow your social media</title>
+  <meta name="description" content="Boostrize: followers, likes, comments and reposts for Instagram, TikTok, X, YouTube and more. Pay in Naira.">
+  <meta name="theme-color" content="#5B3DF5">
+  <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAgMTIwIj48cmVjdCB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCIgcng9IjMwIiBmaWxsPSIjNUIzREY1Ii8+PHBhdGggZD0iTTMyIDcyIEw2MCA0NCBMODggNzIiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIxMSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTMyIDk2IEw2MCA2OCBMODggOTYiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLW9wYWNpdHk9Ii41IiBzdHJva2Utd2lkdGg9IjExIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48Y2lyY2xlIGN4PSI2MCIgY3k9IjI0IiByPSI3IiBmaWxsPSIjRkZCMDIwIi8+PC9zdmc+Cg==" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --violet: #5B3DF5;
+  --violet-dark: #4528D8;
+  --violet-soft: #EEEAFF;
+  --amber: #FFB020;
+  --navy: #0B1020;
+  --bg: #F6F5FF;
+  --card: #FFFFFF;
+  --line: #E4E1F7;
+  --muted: #62617A;
+  --ok: #0F7A56;
+  --ok-bg: #E4F6EE;
+  --bad: #B3261E;
+  --bad-bg: #FDEAE8;
+  --warn: #8A5A00;
+  --warn-bg: #FFF3D6;
+  --radius: 16px;
+  --font: 'Sora', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; font-family: var(--font); background: var(--bg); color: var(--navy); line-height: 1.55; font-size: 16px; }
+img, svg { max-width: 100%; }
+a { color: var(--violet); }
+a:hover { color: var(--violet-dark); }
+h1, h2, h3 { line-height: 1.2; letter-spacing: -0.02em; margin: 0 0 .5em; }
+h1 { font-size: clamp(2rem, 5vw, 3.4rem); letter-spacing: -0.035em; }
+h2 { font-size: clamp(1.4rem, 3vw, 2rem); }
+h3 { font-size: 1.1rem; }
+p { margin: 0 0 1em; }
+.container { width: 100%; max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+.muted { color: var(--muted); }
+.small-print { font-size: .82rem; margin: .5em 0 0; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--navy); color: #fff; padding: 8px 12px; border-radius: 8px; z-index: 10; }
+.skip:focus { left: 8px; }
+:focus-visible { outline: 3px solid var(--amber); outline-offset: 2px; }
+
+/* header */
+.site-header { background: #fff; border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 5; }
+.bar { display: flex; align-items: center; gap: 16px 24px; flex-wrap: wrap; padding-top: 10px; padding-bottom: 10px; }
+.brand { text-decoration: none; color: inherit; display: inline-flex; }
+.wordmark { display: inline-flex; align-items: center; gap: 10px; }
+.wm-text { font-weight: 700; font-size: 1.35rem; letter-spacing: -0.04em; color: var(--navy); }
+.wm-text span { color: var(--violet); }
+.nav { display: flex; gap: 4px 18px; flex-wrap: wrap; flex: 1; }
+.nav a { color: var(--navy); text-decoration: none; font-weight: 600; font-size: .95rem; padding: 8px 0; }
+.nav a:hover { color: var(--violet); }
+.actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.actions form { margin: 0; }
+.chip { background: var(--violet-soft); color: var(--violet-dark); font-weight: 700; padding: 8px 14px; border-radius: 999px; text-decoration: none; font-size: .9rem; }
+.seg { display: inline-flex; background: var(--violet-soft); border-radius: 999px; padding: 3px; }
+.seg button { border: 0; background: transparent; font: inherit; font-size: .8rem; font-weight: 700; padding: 6px 12px; min-height: 32px; border-radius: 999px; cursor: pointer; color: var(--violet-dark); }
+.seg button.on { background: var(--violet); color: #fff; }
+
+/* buttons */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font: inherit; font-weight: 700; font-size: .95rem; padding: 12px 22px; min-height: 44px; border-radius: 12px; border: 2px solid var(--line); background: #fff; color: var(--navy); cursor: pointer; text-decoration: none; }
+.btn:hover { border-color: var(--violet); color: var(--violet-dark); }
+.btn.primary { background: var(--violet); border-color: var(--violet); color: #fff; }
+.btn.primary:hover { background: var(--violet-dark); border-color: var(--violet-dark); color: #fff; }
+.btn.ghost { background: transparent; }
+.btn.danger { border-color: var(--bad); color: var(--bad); }
+.btn.danger:hover { background: var(--bad); color: #fff; }
+.btn.small { padding: 8px 14px; min-height: 40px; font-size: .85rem; border-radius: 10px; }
+.btn.big { padding: 16px 32px; font-size: 1.05rem; border-radius: 14px; }
+
+/* flash */
+.flashes { margin-top: 16px; display: grid; gap: 8px; }
+.flash { padding: 12px 16px; border-radius: 12px; font-weight: 600; font-size: .95rem; }
+.flash.success { background: var(--ok-bg); color: var(--ok); }
+.flash.error { background: var(--bad-bg); color: var(--bad); }
+
+/* layout blocks */
+.section { padding: 56px 0; }
+.page { padding: 32px 0 64px; }
+.page-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 20px; }
+.page-head h1 { font-size: clamp(1.6rem, 4vw, 2.2rem); margin: 0; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; }
+.grid { display: grid; gap: 16px; }
+.grid.cols-2 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.grid.cols-3 { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.grid.cols-4 { grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); }
+
+/* hero */
+.hero { background: radial-gradient(1200px 400px at 85% -10%, rgba(91,61,245,.14), transparent 60%), var(--bg); padding: 72px 0 56px; }
+.hero .lead { font-size: 1.15rem; color: var(--muted); max-width: 40em; }
+.hero h1 em { font-style: normal; color: var(--violet); }
+.hero-cta { display: flex; gap: 12px; flex-wrap: wrap; margin: 24px 0 8px; }
+
+/* tiles */
+.tile { text-decoration: none; color: var(--navy); display: block; transition: transform .12s, border-color .12s; }
+.tile:hover { transform: translateY(-2px); border-color: var(--violet); color: var(--navy); }
+.tile strong { display: block; font-size: 1.1rem; margin-bottom: 2px; }
+.tile .from { color: var(--violet-dark); font-weight: 700; font-size: .9rem; }
+.num { width: 36px; height: 36px; border-radius: 10px; background: var(--violet); color: #fff; font-weight: 700; display: grid; place-items: center; margin-bottom: 12px; }
+
+/* forms */
+.form { display: grid; gap: 16px; max-width: 560px; }
+.form.wide { max-width: 720px; }
+label { display: grid; gap: 6px; font-weight: 600; font-size: .92rem; }
+input, select, textarea { font: inherit; font-size: 1rem; padding: 12px 14px; min-height: 46px; border-radius: 12px; border: 2px solid var(--line); background: #fff; color: var(--navy); width: 100%; }
+textarea { min-height: 120px; resize: vertical; }
+input:focus, select:focus, textarea:focus { border-color: var(--violet); outline: none; box-shadow: 0 0 0 3px rgba(91,61,245,.18); }
+.hint { font-weight: 400; color: var(--muted); font-size: .85rem; }
+.check { display: flex; align-items: center; gap: 10px; font-weight: 600; }
+.check input { width: 20px; height: 20px; min-height: 0; }
+.inline-form { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin: 0; }
+.inline-form input, .inline-form select { width: auto; min-height: 40px; padding: 8px 12px; }
+.total { display: flex; justify-content: space-between; align-items: baseline; background: var(--violet-soft); border-radius: 12px; padding: 14px 18px; }
+.total strong { font-size: 1.5rem; color: var(--violet-dark); }
+.auth-card { max-width: 440px; margin: 40px auto; }
+
+/* tables */
+.table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); background: #fff; }
+table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+th, td { padding: 12px 14px; text-align: left; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-size: .78rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); background: #FBFAFF; white-space: nowrap; }
+tr:last-child td { border-bottom: 0; }
+td.num-col, th.num-col { text-align: right; white-space: nowrap; }
+.trunc { max-width: 240px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display: inline-block; vertical-align: bottom; }
+.pager { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; }
+
+/* badges */
+.badge { display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: .78rem; font-weight: 700; white-space: nowrap; }
+.badge-pending, .badge-processing { background: var(--violet-soft); color: var(--violet-dark); }
+.badge-completed { background: var(--ok-bg); color: var(--ok); }
+.badge-partial, .badge-review { background: var(--warn-bg); color: var(--warn); }
+.badge-canceled, .badge-failed { background: var(--bad-bg); color: var(--bad); }
+.tag { display: inline-block; background: #F1F0FA; color: var(--muted); border-radius: 6px; padding: 1px 8px; font-size: .75rem; font-weight: 600; margin-right: 4px; }
+.tag.good { background: var(--ok-bg); color: var(--ok); }
+
+/* stats */
+.stat { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 20px; }
+.stat .label { color: var(--muted); font-size: .82rem; font-weight: 600; }
+.stat .value { font-size: 1.7rem; font-weight: 700; letter-spacing: -0.03em; }
+.balance-card { background: var(--navy); color: #fff; border: 0; }
+.balance-card .label { color: #B9B8D4; }
+.balance-card .value { color: #fff; font-size: 2.2rem; }
+.notice { background: var(--warn-bg); color: var(--warn); border-radius: 12px; padding: 12px 16px; font-weight: 600; font-size: .92rem; margin-bottom: 16px; }
+
+/* faq / prose */
+details { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 14px 18px; margin-bottom: 10px; }
+summary { cursor: pointer; font-weight: 700; }
+details p { margin: 10px 0 0; color: var(--muted); }
+.prose { max-width: 760px; }
+.prose h2 { font-size: 1.25rem; margin-top: 1.6em; }
+.prose p, .prose li { color: #2B2F45; }
+
+/* footer */
+.site-footer { border-top: 1px solid var(--line); background: #fff; padding: 32px 0; margin-top: 24px; }
+.foot { display: grid; gap: 16px; }
+.foot-links { display: flex; gap: 8px 20px; flex-wrap: wrap; font-weight: 600; font-size: .92rem; }
+.error-page { text-align: center; padding: 96px 0; }
+.error-page .code { font-size: 5rem; font-weight: 700; color: var(--violet); letter-spacing: -0.05em; line-height: 1; }
+
+@media (max-width: 720px) {
+  .nav { order: 3; flex-basis: 100%; }
+  .hero { padding: 48px 0 40px; }
+  .section { padding: 40px 0; }
+  .card { padding: 18px; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container bar">
+    <a class="brand" href="index.html" aria-label="Boostrize home">
+<span class="wordmark">
+<svg viewBox="0 0 120 120" width="34" height="34" aria-hidden="true" focusable="false"><rect width="120" height="120" rx="30" fill="#5B3DF5"/><path d="M32 72 L60 44 L88 72" fill="none" stroke="#fff" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/><path d="M32 96 L60 68 L88 96" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/><circle cx="60" cy="24" r="7" fill="#FFB020"/></svg><span class="wm-text">Boost<span>rize</span></span></span></a>
+    <nav class="nav" aria-label="Main">
+      <a href="#">Services</a>
+      
+    </nav>
+    <div class="actions">
+      
+      
+        <a class="btn small ghost" href="#">Log in</a>
+        <a class="btn small primary" href="#">Sign up</a>
+      
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  
+    
+  
+  
+<section class="hero">
+  <div class="container">
+    <h1>Grow your social media <em>faster</em>.</h1>
+    <p class="lead">Followers, likes, comments and reposts for Instagram, TikTok, X, YouTube and more. Choose a service, paste a public link, pay in Naira, and track every order from one dashboard.</p>
+    <div class="hero-cta">
+      
+        <a class="btn primary big" href="#">Create free account</a>
+      
+      <a class="btn big" href="#">See services &amp; prices</a>
+    </div>
+    <p class="muted small-print">No password needed for your social accounts &mdash; only a public link.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>Pick your platform</h2>
+    
+    <div class="grid cols-4">
+      
+      <a class="card tile" href="#">
+        <strong>Facebook</strong>
+        <span class="muted">1 service</span><br>
+        <span class="from">from $6.24 / 1,000</span>
+      </a>
+      
+      <a class="card tile" href="#">
+        <strong>Instagram</strong>
+        <span class="muted">7 services</span><br>
+        <span class="from">from $0.13 / 1,000</span>
+      </a>
+      
+      <a class="card tile" href="#">
+        <strong>Telegram</strong>
+        <span class="muted">1 service</span><br>
+        <span class="from">from $4.16 / 1,000</span>
+      </a>
+      
+      <a class="card tile" href="#">
+        <strong>TikTok</strong>
+        <span class="muted">4 services</span><br>
+        <span class="from">from $0.06 / 1,000</span>
+      </a>
+      
+      <a class="card tile" href="#">
+        <strong>X (Twitter)</strong>
+        <span class="muted">3 services</span><br>
+        <span class="from">from $2.88 / 1,000</span>
+      </a>
+      
+      <a class="card tile" href="#">
+        <strong>YouTube</strong>
+        <span class="muted">2 services</span><br>
+        <span class="from">from $3.52 / 1,000</span>
+      </a>
+      
+    </div>
+    
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <h2>How it works</h2>
+    <div class="grid cols-3">
+      <div class="card"><div class="num">1</div><h3>Add funds</h3><p class="muted" style="margin:0">Top up your wallet in Naira with card, bank transfer or USSD. Prices can be viewed in USD or ₦.</p></div>
+      <div class="card"><div class="num">2</div><h3>Choose a service</h3><p class="muted" style="margin:0">Pick the platform, the type and the region, paste your public link and set a quantity.</p></div>
+      <div class="card"><div class="num">3</div><h3>Track delivery</h3><p class="muted" style="margin:0">Watch progress in your orders list. Failed or canceled orders are refunded to your wallet automatically.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <h2>Why Boostrize</h2>
+    <div class="grid cols-2">
+      <div class="card"><h3>Global and local options</h3><p class="muted" style="margin:0">Services with worldwide delivery, plus region-specific options such as Nigeria, USA, UK and Europe where available.</p></div>
+      <div class="card"><h3>Automatic refunds</h3><p class="muted" style="margin:0">If an order fails, is canceled, or is only partly delivered, the undelivered part goes straight back to your balance.</p></div>
+      <div class="card"><h3>Refill-backed services</h3><p class="muted" style="margin:0">Look for the refill tag: those services are replenished by the provider if the count drops within the stated period.</p></div>
+      <div class="card"><h3>Clear pricing</h3><p class="muted" style="margin:0">You see the price per 1,000 and your exact total before you pay. No subscriptions, no hidden fees.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="container"><div class="prose">
+    <h2>Questions</h2>
+    <details><summary>Do you need my password?</summary><p>Never. We only need the public link to your profile or post. Keep your account public while an order is running.</p></details>
+    <details><summary>How fast is delivery?</summary><p>Most orders start within minutes to a few hours, depending on the service and quantity. You can follow progress in your orders list.</p></details>
+    <details><summary>Will the results last?</summary><p>Delivery comes from third-party providers and social platforms can remove accounts or followers at any time. Services with the refill tag are topped up if the count drops within the stated period. We can&rsquo;t guarantee permanence &mdash; see our <a href="#">terms</a>.</p></details>
+    <details><summary>How do I pay?</summary><p>Nigerian customers can pay in Naira by card, bank transfer or USSD. If you&rsquo;re paying from abroad, contact support to arrange another payment method.</p></details>
+  </div></div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container foot">
+    <div>
+<span class="wordmark">
+<svg viewBox="0 0 120 120" width="26" height="26" aria-hidden="true" focusable="false"><rect width="120" height="120" rx="30" fill="#5B3DF5"/><path d="M32 72 L60 44 L88 72" fill="none" stroke="#fff" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/><path d="M32 96 L60 68 L88 96" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/><circle cx="60" cy="24" r="7" fill="#FFB020"/></svg><span class="wm-text">Boost<span>rize</span></span></span><p class="muted small-print">Social media growth services. We never ask for your password &mdash; only a public link.</p></div>
+    <div class="foot-links">
+      <a href="#">Services</a>
+      <a href="#">Terms &amp; refunds</a>
+      
+    </div>
+    <p class="muted small-print">&copy; 2026 Boostrize. Results are delivered by third-party providers and are not guaranteed to be permanent.</p>
+  </div>
+</footer>
+</body>
+</html>

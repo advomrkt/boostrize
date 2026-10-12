@@ -1,16 +1,17 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAgMTIwIj48cmVjdCB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCIgcng9IjMwIiBmaWxsPSIjNUIzREY1Ii8+PHBhdGggZD0iTTMyIDcyIEw2MCA0NCBMODggNzIiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIxMSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTMyIDk2IEw2MCA2OCBMODggOTYiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLW9wYWNpdHk9Ii41IiBzdHJva2Utd2lkdGg9IjExIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48Y2lyY2xlIGN4PSI2MCIgY3k9IjI0IiByPSI3IiBmaWxsPSIjRkZCMDIwIi8+PC9zdmc+Cg==">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Boostrize: grow your social media</title>
-  <meta name="description" content="Boostrize: followers, likes, comments and reposts for Instagram, TikTok, X, YouTube and more. Pay in Naira or crypto.">
-  <meta name="theme-color" content="#5B3DF5">
-          <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>:root {
+<meta name="description" content="Boostrize: followers, likes, comments and reposts for Instagram, TikTok, X, YouTube and more. Pay in Naira or crypto.">
+<meta name="theme-color" content="#5B3DF5">
+<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAgMTIwIj48cmVjdCB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCIgcng9IjMwIiBmaWxsPSIjNUIzREY1Ii8+PHBhdGggZD0iTTMyIDcyIEw2MCA0NCBMODggNzIiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIxMSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTMyIDk2IEw2MCA2OCBMODggOTYiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLW9wYWNpdHk9Ii41IiBzdHJva2Utd2lkdGg9IjExIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48Y2lyY2xlIGN4PSI2MCIgY3k9IjI0IiByPSI3IiBmaWxsPSIjRkZCMDIwIi8+PC9zdmc+Cg==">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
   --violet: #5B3DF5;
   --violet-dark: #4528D8;
   --violet-soft: #EEEAFF;
@@ -255,17 +256,25 @@ tbody tr:nth-child(2) { animation-delay: .04s; } tbody tr:nth-child(3) { animati
   .js .reveal { opacity: 1; transform: none; }
   @view-transition { navigation: none; }
 }
+
+.preview-bar { background: #0B1020; color: #fff; text-align: center; font-size: .8rem; font-weight: 600; padding: 7px 12px; }
+.preview-toast { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); background: #0B1020; color: #fff; padding: 12px 18px; border-radius: 12px; font-weight: 600; z-index: 99; animation: rise .3s both; }
+
+
+.view { animation: vt-in .35s var(--ease) both; }
+.preview-toast { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); background: #0B1020; color: #fff; padding: 12px 18px; border-radius: 12px; font-weight: 600; z-index: 99; animation: rise .3s both; }
+
 </style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="site-header">
+<div class="hdr-guest" style="display:contents"><header class="site-header">
   <div class="container bar">
-    <a class="brand" href="index.html" aria-label="Boostrize home">
+    <a class="brand" href="#/index" aria-label="Boostrize home">
 <span class="wordmark">
 <svg viewBox="0 0 120 120" width="34" height="34" aria-hidden="true" focusable="false"><rect width="120" height="120" rx="30" fill="#5B3DF5"/><path d="M32 72 L60 44 L88 72" fill="none" stroke="#fff" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/><path d="M32 96 L60 68 L88 96" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/><circle cx="60" cy="24" r="7" fill="#FFB020"/></svg><span class="wm-text">Boost<span>rize</span></span></span></a>
     <nav class="nav" aria-label="Main">
-      <a href="services.html">Services</a>
+      <a href="#/services">Services</a>
       
     </nav>
     <div class="actions">
@@ -275,14 +284,42 @@ tbody tr:nth-child(2) { animation-delay: .04s; } tbody tr:nth-child(3) { animati
         <button name="currency" value="ngn" class="on" aria-pressed="true">₦ NGN</button>
       </form>
       
-        <a class="btn small ghost" href="login.html">Log in</a>
-        <a class="btn small primary" href="register.html">Sign up</a>
+        <a class="btn small ghost" href="#/login">Log in</a>
+        <a class="btn small primary" href="#/register">Sign up</a>
       
     </div>
   </div>
-</header>
-
+</header></div>
+<div class="hdr-auth" style="display:none"><header class="site-header">
+  <div class="container bar">
+    <a class="brand" href="#/index" aria-label="Boostrize home">
+<span class="wordmark">
+<svg viewBox="0 0 120 120" width="34" height="34" aria-hidden="true" focusable="false"><rect width="120" height="120" rx="30" fill="#5B3DF5"/><path d="M32 72 L60 44 L88 72" fill="none" stroke="#fff" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/><path d="M32 96 L60 68 L88 96" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/><circle cx="60" cy="24" r="7" fill="#FFB020"/></svg><span class="wm-text">Boost<span>rize</span></span></span></a>
+    <nav class="nav" aria-label="Main">
+      <a href="#/services">Services</a>
+      
+        <a href="#/order">New order</a>
+        <a href="#/orders">Orders</a>
+        <a href="#/funds">Add funds</a>
+        <a href="#/account">Account</a>
+        
+      
+    </nav>
+    <div class="actions">
+      <form method="post" action="#" class="seg" aria-label="Display currency">
+        
+        <button name="currency" value="usd" class="" aria-pressed="false">USD</button>
+        <button name="currency" value="ngn" class="on" aria-pressed="true">₦ NGN</button>
+      </form>
+      
+        <a class="chip" href="#/funds" title="Your balance"><span class="px" data-m="12400000">₦18,600</span></a>
+        <form method="post" data-go="index"><button class="btn small ghost">Log out</button></form>
+      
+    </div>
+  </div>
+</header></div>
 <main id="main">
+<section class="view" data-page="index" hidden>
   
     
   
@@ -293,9 +330,9 @@ tbody tr:nth-child(2) { animation-delay: .04s; } tbody tr:nth-child(3) { animati
     <p class="lead">Followers, likes, comments and reposts for Instagram, TikTok, X, YouTube and more. Choose a service, paste a public link, pay in Naira or crypto, and track every order from one dashboard.</p>
     <div class="hero-cta">
       
-        <a class="btn primary big" href="register.html">Create free account</a>
+        <a class="btn primary big" href="#/register">Create free account</a>
       
-      <a class="btn big" href="services.html">See services &amp; prices</a>
+      <a class="btn big" href="#/services">See services &amp; prices</a>
     </div>
     <p class="muted small-print">No password needed for your social accounts &mdash; only a public link.</p>
   </div>
@@ -305,43 +342,43 @@ tbody tr:nth-child(2) { animation-delay: .04s; } tbody tr:nth-child(3) { animati
 <section class="section">
   <div class="container">
     <h2>Start small</h2>
-    <p class="muted" style="margin-top:-6px">Low-cost packs to try us out. Top up from ₦504.</p>
+    <p class="muted" style="margin-top:-6px">Low-cost packs to try us out. Top up from <span class="px" data-m="336000">₦504</span>.</p>
     <div class="grid cols-3">
       
-      <a class="card tile" href="order.html">
+      <a class="card tile" href="#/order?service=1&amp;qty=100">
         <strong>100 Instagram Followers</strong>
         <span class="muted">Global &middot; refill</span><br>
-        <span class="from">₦504</span>
+        <span class="from"><span class="px" data-m="336000">₦504</span></span>
       </a>
       
-      <a class="card tile" href="order.html">
+      <a class="card tile" href="#/order?service=4&amp;qty=500">
         <strong>500 Instagram Likes</strong>
         <span class="muted">Global</span><br>
-        <span class="from">₦900</span>
+        <span class="from"><span class="px" data-m="600000">₦900</span></span>
       </a>
       
-      <a class="card tile" href="order.html">
+      <a class="card tile" href="#/order?service=8&amp;qty=100">
         <strong>100 TikTok Followers</strong>
         <span class="muted">Global &middot; refill</span><br>
-        <span class="from">₦768</span>
+        <span class="from"><span class="px" data-m="512000">₦768</span></span>
       </a>
       
-      <a class="card tile" href="order.html">
+      <a class="card tile" href="#/order?service=9&amp;qty=500">
         <strong>500 TikTok Likes</strong>
         <span class="muted">Global</span><br>
-        <span class="from">₦1,350</span>
+        <span class="from"><span class="px" data-m="900000">₦1,350</span></span>
       </a>
       
-      <a class="card tile" href="order.html">
+      <a class="card tile" href="#/order?service=16&amp;qty=1000">
         <strong>1,000 YouTube Views</strong>
         <span class="muted">Global</span><br>
-        <span class="from">₦5,280</span>
+        <span class="from"><span class="px" data-m="3520000">₦5,280</span></span>
       </a>
       
-      <a class="card tile" href="order.html">
+      <a class="card tile" href="#/order?service=12&amp;qty=100">
         <strong>100 X (Twitter) Followers</strong>
         <span class="muted">Global</span><br>
-        <span class="from">₦1,575</span>
+        <span class="from"><span class="px" data-m="1050000">₦1,575</span></span>
       </a>
       
     </div>
@@ -355,40 +392,40 @@ tbody tr:nth-child(2) { animation-delay: .04s; } tbody tr:nth-child(3) { animati
     
     <div class="grid cols-4">
       
-      <a class="card tile" href="services.html">
+      <a class="card tile" href="#/services?platform=facebook">
         <strong>Facebook</strong>
         <span class="muted">1 service</span><br>
-        <span class="from">from ₦9,360 / 1,000</span>
+        <span class="from">from <span class="px" data-m="6240000">₦9,360</span> / 1,000</span>
       </a>
       
-      <a class="card tile" href="services.html">
+      <a class="card tile" href="#/services?platform=instagram">
         <strong>Instagram</strong>
         <span class="muted">7 services</span><br>
-        <span class="from">from ₦240 / 1,000</span>
+        <span class="from">from <span class="px" data-m="160000">₦240</span> / 1,000</span>
       </a>
       
-      <a class="card tile" href="services.html">
+      <a class="card tile" href="#/services?platform=telegram">
         <strong>Telegram</strong>
         <span class="muted">1 service</span><br>
-        <span class="from">from ₦6,240 / 1,000</span>
+        <span class="from">from <span class="px" data-m="4160000">₦6,240</span> / 1,000</span>
       </a>
       
-      <a class="card tile" href="services.html">
+      <a class="card tile" href="#/services?platform=tiktok">
         <strong>TikTok</strong>
         <span class="muted">4 services</span><br>
-        <span class="from">from ₦120 / 1,000</span>
+        <span class="from">from <span class="px" data-m="80000">₦120</span> / 1,000</span>
       </a>
       
-      <a class="card tile" href="services.html">
+      <a class="card tile" href="#/services?platform=twitter">
         <strong>X (Twitter)</strong>
         <span class="muted">3 services</span><br>
-        <span class="from">from ₦4,320 / 1,000</span>
+        <span class="from">from <span class="px" data-m="2880000">₦4,320</span> / 1,000</span>
       </a>
       
-      <a class="card tile" href="services.html">
+      <a class="card tile" href="#/services?platform=youtube">
         <strong>YouTube</strong>
         <span class="muted">2 services</span><br>
-        <span class="from">from ₦5,280 / 1,000</span>
+        <span class="from">from <span class="px" data-m="3520000">₦5,280</span> / 1,000</span>
       </a>
       
     </div>
@@ -424,27 +461,795 @@ tbody tr:nth-child(2) { animation-delay: .04s; } tbody tr:nth-child(3) { animati
     <h2>Questions</h2>
     <details><summary>Do you need my password?</summary><p>Never. We only need the public link to your profile or post. Keep your account public while an order is running.</p></details>
     <details><summary>How fast is delivery?</summary><p>Most orders start within minutes to a few hours, depending on the service and quantity. You can follow progress in your orders list.</p></details>
-    <details><summary>Will the results last?</summary><p>Delivery comes from third-party providers and social platforms can remove accounts or followers at any time. Services with the refill tag are topped up if the count drops within the stated period. We can&rsquo;t guarantee permanence &mdash; see our <a href="terms.html">terms</a>.</p></details>
+    <details><summary>Will the results last?</summary><p>Delivery comes from third-party providers and social platforms can remove accounts or followers at any time. Services with the refill tag are topped up if the count drops within the stated period. We can&rsquo;t guarantee permanence &mdash; see our <a href="#/terms">terms</a>.</p></details>
     <details><summary>How do I pay?</summary><p>Nigerian customers pay in Naira by card, bank transfer or USSD, from ₦500. Customers abroad can pay with crypto (USDT, USDC, Bitcoin and others).</p></details>
   </div></div>
 </section>
 
-</main>
+</section>
+<section class="view" data-page="services" hidden>
+  
+    
+  
+  
+<div class="container page">
+  <div class="page-head">
+    <h1>Services &amp; prices</h1>
+    <form method="get" class="inline-form">
+      <select name="platform" aria-label="Platform">
+        <option value="">All platforms</option>
+        <option value="facebook" >Facebook</option><option value="instagram" >Instagram</option><option value="telegram" >Telegram</option><option value="tiktok" >TikTok</option><option value="twitter" >X (Twitter)</option><option value="youtube" >YouTube</option>
+      </select>
+      <input type="search" name="q" value="" placeholder="Search e.g. Nigeria" aria-label="Search services">
+      <button class="btn small">Search</button>
+    </form>
+  </div>
+  <p class="muted">Prices are per 1,000. Showing in Naira (₦1500 = $1) &mdash; switch at the top right.</p>
+  
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>ID</th><th>Service</th><th>Region</th><th class="num-col">Min</th><th class="num-col">Max</th><th class="num-col">Price / 1,000</th><th></th></tr></thead>
+      <tbody>
+      
+        <tr>
+          <td>17</td>
+          <td>
+            <strong>Facebook Page Followers - Global</strong><br>
+            <span class="tag">Facebook</span><span class="tag">Followers</span>
+            
+          </td>
+          <td>Global</td>
+          <td class="num-col">100</td>
+          <td class="num-col">50,000</td>
+          <td class="num-col"><strong><span class="px" data-m="6240000">₦9,360</span></strong></td>
+          <td><a class="btn small primary" href="#/order?service=17">Order</a></td>
+        </tr>
+      
+        <tr>
+          <td>5</td>
+          <td>
+            <strong>Instagram Comments - Random Emoji</strong><br>
+            <span class="tag">Instagram</span><span class="tag">Comments</span>
+            
+          </td>
+          <td>Global</td>
+          <td class="num-col">10</td>
+          <td class="num-col">1,000</td>
+          <td class="num-col"><strong><span class="px" data-m="12600000">₦18,900</span></strong></td>
+          <td><a class="btn small primary" href="#/order?service=5">Order</a></td>
+        </tr>
+      
+        <tr>
+          <td>6</td>
+          <td>
+            <strong>Instagram Comments - Custom</strong><br>
+            <span class="tag">Instagram</span><span class="tag">Comments</span>
+            
+          </td>
+          <td>Global</td>
+          <td class="num-col">5</td>
+          <td class="num-col">500</td>
+          <td class="num-col"><strong><span class="px" data-m="16800000">₦25,200</span></strong></td>
+          <td><a class="btn small primary" href="#/order?service=6">Order</a></td>
+        </tr>
+      
+        <tr>
+          <td>1</td>
+          <td>
+            <strong>Instagram Followers - Global Mix [Refill 30D]</strong><br>
+            <span class="tag">Instagram</span><span class="tag">Followers</span>
+            <span class="tag good">Refill</span>
+          </td>
+          <td>Global</td>
+          <td class="num-col">100</td>
+          <td class="num-col">50,000</td>
+          <td class="num-col"><strong><span class="px" data-m="3360000">₦5,040</span></strong></td>
+          <td><a class="btn small primary" href="#/order?service=1">Order</a></td>
+        </tr>
+      
+        <tr>
+          <td>3</td>
+          <td>
+            <strong>Instagram Followers - Nigeria</strong><br>
+            <span class="tag">Instagram</span><span class="tag">Followers</span>
+            
+          </td>
+          <td>Nigeria</td>
+          <td class="num-col">100</td>
+          <td class="num-col">20,000</td>
+          <td class="num-col"><strong><span class="px" data-m="7560000">₦11,340</span></strong></td>
+          <td><a class="btn small primary" href="#/order?service=3">Order</a></td>
+        </tr>
+      
+        <tr>
+          <td>2</td>
+          <td>
+            <strong>Instagram Followers - USA</strong><br>
+            <span class="tag">Instagram</span><span class="tag">Followers</span>
+            <span class="tag good">Refill</span>
+          </td>
+          <td>USA</td>
+          <td class="num-col">100</td>
+          <td class="num-col">20,000</td>
+          <td class="num-col"><strong><span class="px" data-m="9520000">₦14,280</span></strong></td>
+          <td><a class="btn small primary" href="#/order?service=2">Order</a></td>
+        </tr>
+      
+        <tr>
+          <td>4</td>
+          <td>
+            <strong>Instagram Likes - Global</strong><br>
+            <span class="tag">Instagram</span><span class="tag">Likes</span>
+            
+          </td>
+          <td>Global</td>
+          <td class="num-col">50</td>
+          <td class="num-col">100,000</td>
+          <td class="num-col"><strong><span class="px" data-m="1200000">₦1,800</span></strong></td>
+          <td><a class="btn small primary" href="#/order?service=4">Order</a></td>
+        </tr>
+      
+        <tr>
+          <td>7</td>
+          <td>
+            <strong>Instagram Reels Views</strong><br>
+            <span class="tag">Instagram</span><span class="tag">Views</span>
+            
+          </td>
+          <td>Global</td>
+          <td class="num-col">100</td>
+          <td class="num-col">1,000,000</td>
+          <td class="num-col"><strong><span class="px" data-m="160000">₦240</span></strong></td>
+          <td><a class="btn small primary" href="#/order?service=7">Order</a></td>
+        </tr>
+      
+        <tr>
+          <td>18</td>
+          <td>
+            <strong>Telegram Channel Members - Global</strong><br>
+            <span class="tag">Telegram</span><span class="tag">Members</span>
+            
+          </td>
+          <td>Global</td>
+          <td class="num-col">100</td>
+          <td class="num-col">100,000</td>
+          <td class="num-col"><strong><span class="px" data-m="4160000">₦6,240</span></strong></td>
+          <td><a class="btn small primary" href="#/order?service=18">Order</a></td>
+        </tr>
+      
+        <tr>
+          <td>8</td>
+          <td>
+            <strong>TikTok Followers - Global</strong><br>
+            <span class="tag">TikTok</span><span class="tag">Followers</span>
+            <span class="tag good">Refill</span>
+          </td>
+          <td>Global</td>
+          <td class="num-col">100</td>
+          <td class="num-col">50,000</td>
+          <td class="num-col"><strong><span class="px" data-m="5120000">₦7,680</span></strong></td>
+          <td><a class="btn small primary" href="#/order?service=8">Order</a></td>
+        </tr>
+      
+        <tr>
+          <td>9</td>
+          <td>
+            <strong>TikTok Likes - Global</strong><br>
+            <span class="tag">TikTok</span><span class="tag">Likes</span>
+            
+          </td>
+          <td>Global</td>
+          <td class="num-col">50</td>
+          <td class="num-col">100,000</td>
+          <td class="num-col"><strong><span class="px" data-m="1800000">₦2,700</span></strong></td>
+          <td><a class="btn small primary" href="#/order?service=9">Order</a></td>
+        </tr>
+      
+        <tr>
+          <td>10</td>
+          <td>
+            <strong>TikTok Shares</strong><br>
+            <span class="tag">TikTok</span><span class="tag">Reposts / Shares</span>
+            
+          </td>
+          <td>Global</td>
+          <td class="num-col">50</td>
+          <td class="num-col">100,000</td>
+          <td class="num-col"><strong><span class="px" data-m="1400000">₦2,100</span></strong></td>
+          <td><a class="btn small primary" href="#/order?service=10">Order</a></td>
+        </tr>
+      
+        <tr>
+          <td>11</td>
+          <td>
+            <strong>TikTok Video Views</strong><br>
+            <span class="tag">TikTok</span><span class="tag">Views</span>
+            
+          </td>
+          <td>Global</td>
+          <td class="num-col">100</td>
+          <td class="num-col">5,000,000</td>
+          <td class="num-col"><strong><span class="px" data-m="80000">₦120</span></strong></td>
+          <td><a class="btn small primary" href="#/order?service=11">Order</a></td>
+        </tr>
+      
+        <tr>
+          <td>12</td>
+          <td>
+            <strong>X (Twitter) Followers - Global</strong><br>
+            <span class="tag">X (Twitter)</span><span class="tag">Followers</span>
+            
+          </td>
+          <td>Global</td>
+          <td class="num-col">100</td>
+          <td class="num-col">20,000</td>
+          <td class="num-col"><strong><span class="px" data-m="10500000">₦15,750</span></strong></td>
+          <td><a class="btn small primary" href="#/order?service=12">Order</a></td>
+        </tr>
+      
+        <tr>
+          <td>14</td>
+          <td>
+            <strong>X (Twitter) Likes - Global</strong><br>
+            <span class="tag">X (Twitter)</span><span class="tag">Likes</span>
+            
+          </td>
+          <td>Global</td>
+          <td class="num-col">10</td>
+          <td class="num-col">20,000</td>
+          <td class="num-col"><strong><span class="px" data-m="2880000">₦4,320</span></strong></td>
+          <td><a class="btn small primary" href="#/order?service=14">Order</a></td>
+        </tr>
+      
+        <tr>
+          <td>13</td>
+          <td>
+            <strong>X (Twitter) Retweets - Global</strong><br>
+            <span class="tag">X (Twitter)</span><span class="tag">Reposts / Shares</span>
+            
+          </td>
+          <td>Global</td>
+          <td class="num-col">10</td>
+          <td class="num-col">10,000</td>
+          <td class="num-col"><strong><span class="px" data-m="6720000">₦10,080</span></strong></td>
+          <td><a class="btn small primary" href="#/order?service=13">Order</a></td>
+        </tr>
+      
+        <tr>
+          <td>15</td>
+          <td>
+            <strong>YouTube Subscribers - Global [Refill 30D]</strong><br>
+            <span class="tag">YouTube</span><span class="tag">Subscribers</span>
+            <span class="tag good">Refill</span>
+          </td>
+          <td>Global</td>
+          <td class="num-col">50</td>
+          <td class="num-col">5,000</td>
+          <td class="num-col"><strong><span class="px" data-m="36400000">₦54,600</span></strong></td>
+          <td><a class="btn small primary" href="#/order?service=15">Order</a></td>
+        </tr>
+      
+        <tr>
+          <td>16</td>
+          <td>
+            <strong>YouTube Views - Global</strong><br>
+            <span class="tag">YouTube</span><span class="tag">Views</span>
+            
+          </td>
+          <td>Global</td>
+          <td class="num-col">500</td>
+          <td class="num-col">1,000,000</td>
+          <td class="num-col"><strong><span class="px" data-m="3520000">₦5,280</span></strong></td>
+          <td><a class="btn small primary" href="#/order?service=16">Order</a></td>
+        </tr>
+      
+      </tbody>
+    </table>
+  </div>
+  
+</div>
 
+</section>
+<section class="view" data-page="login" hidden>
+  
+    
+  
+  
+<div class="container">
+  <div class="card auth-card">
+    <h1 style="font-size:1.8rem">Welcome back</h1>
+    <form data-go="dashboard" method="post" class="form">
+      
+      
+      <label>Email <input type="email" name="email" value="" autocomplete="email" required autofocus></label>
+      <label>Password <input type="password" name="password" autocomplete="current-password" required></label>
+      <button class="btn primary">Log in</button>
+    </form>
+    <p class="muted" style="margin:16px 0 0">New here? <a href="#/register">Create an account</a></p>
+  </div>
+</div>
+
+</section>
+<section class="view" data-page="register" hidden>
+  
+    
+  
+  
+<div class="container">
+  <div class="card auth-card">
+    <h1 style="font-size:1.8rem">Create your account</h1>
+    <form data-go="dashboard" method="post" class="form">
+      
+      <label>Name <span class="hint">(optional)</span> <input name="name" value="" autocomplete="name" maxlength="80"></label>
+      <label>Email <input type="email" name="email" value="" autocomplete="email" required></label>
+      <label>Password <span class="hint">At least 8 characters</span> <input type="password" name="password" autocomplete="new-password" minlength="8" required></label>
+      <button class="btn primary">Create account</button>
+      <p class="hint" style="margin:0">By signing up you agree to our <a href="#/terms">terms &amp; refund policy</a>.</p>
+    </form>
+    <p class="muted" style="margin:16px 0 0">Already have an account? <a href="#/login">Log in</a></p>
+  </div>
+</div>
+
+</section>
+<section class="view" data-page="terms" hidden>
+  
+    
+  
+  
+
+<div class="container page">
+  <div class="prose">
+    <h1 style="font-size:2rem">Terms &amp; refund policy</h1>
+    <p class="muted">Last updated 2026.</p>
+
+    <h2>What we do</h2>
+    <p>Boostrize resells social media growth services (such as followers, likes, comments and reposts) supplied by third-party providers. Delivery speed and results depend on those providers and on the social platforms.</p>
+
+    <h2>No guarantee of permanence</h2>
+    <p>Social platforms can remove followers, likes or accounts at any time, and their rules may restrict the use of services like ours. You use Boostrize at your own risk and are responsible for following the rules of the platforms you use. Where a service shows a <strong>refill</strong> tag, the provider replenishes drops within the stated period; other services have no drop protection.</p>
+
+    <h2>Your account and links</h2>
+    <p>We never ask for your social media password. Give us a public link, keep the account or post public until the order finishes, and double-check the link: we can&rsquo;t refund orders placed on the wrong link, or on a private or deleted account.</p>
+
+    <h2>Refunds</h2>
+    <ul>
+      <li>If an order fails or is canceled before delivery, the full amount returns to your wallet automatically.</li>
+      <li>If an order is only partly delivered, the undelivered part is refunded automatically.</li>
+      <li>Completed orders are not refundable. Do not run two orders for the same link at the same time.</li>
+      <li>Refunds are credited to your Boostrize wallet balance. Wallet funds are for spending on our services.</li>
+    </ul>
+
+    <h2>Payments</h2>
+    <p>Balances are held in US dollars; Naira top-ups are converted at the rate shown on the Add funds page at the time you pay; crypto top-ups are priced in US dollars and credited after the payment is confirmed on the network (send the exact amount shown, underpayments and late payments may need support to resolve). Top-ups are non-refundable once credited, except where required by law.</p>
+
+    <h2>Acceptable use</h2>
+    <p>Don&rsquo;t use Boostrize for illegal content, harassment, scams, or anything that breaks the law or a platform&rsquo;s rules. We may refuse or cancel orders and disable accounts that do.</p>
+
+    <h2>Liability</h2>
+    <p>Services are provided &ldquo;as is&rdquo;. To the extent the law allows, our liability is limited to the amount you paid for the affected order.</p>
+
+    <h2>Contact</h2>
+    <p>Questions? Contact our support team.</p>
+  </div>
+</div>
+
+</section>
+<section class="view" data-page="dashboard" hidden>
+  
+    
+  
+  
+<div class="container page account-layout">
+<aside class="side" aria-label="Your account">
+  <div class="who"><div class="avatar">A</div><div><strong>Amaka Obi</strong><span>amaka@example.com</span></div></div>
+  <a class="item" href="#/dashboard"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>Overview</a>
+  <a class="item" href="#/order"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg>New order</a>
+  <a class="item" href="#/orders"><svg viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13"/><circle cx="4" cy="6" r="1"/><circle cx="4" cy="12" r="1"/><circle cx="4" cy="18" r="1"/></svg>Orders</a>
+  <a class="item" href="#/funds"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="14" rx="3"/><path d="M3 10h18M16 15h2"/></svg>Add funds</a>
+  <a class="item" href="#/account"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg>Account</a>
+  <form method="post" data-go="index"><button class="btn small ghost">Log out</button></form>
+</aside>
+<div class="account-main">
+  <div class="page-head">
+    <h1>Hi, Amaka 👋</h1>
+    <a class="btn primary" href="#/order">New order</a>
+  </div>
+  <div class="stats-5">
+    <div class="stat balance-card"><div class="label">Wallet balance</div><div class="value"><span class="px" data-m="12400000">₦18,600</span></div>
+      <a class="btn small" style="margin-top:10px" href="#/funds">Add funds</a></div>
+    <div class="stat"><div class="label">Total spent</div><div class="value"><span class="px" data-m="10880000">₦16,320</span></div></div>
+    <div class="stat"><div class="label">Total orders</div><div class="value">4</div></div>
+    <div class="stat accent"><div class="label">In progress</div><div class="value">2</div></div>
+    <div class="stat"><div class="label">Completed</div><div class="value">2</div></div>
+  </div>
+
+  <h2 style="font-size:1.2rem">Recent orders</h2>
+  
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Service</th><th class="num-col">Qty</th><th class="num-col">Charge</th><th>Status</th></tr></thead>
+      <tbody>
+      
+        <tr>
+          <td>4</td>
+          <td>YouTube Views - Global<br><span class="muted trunc">https://youtube.com/watch?v=xyz</span></td>
+          <td class="num-col">2,000</td>
+          <td class="num-col"><span class="px" data-m="7040000">₦10,560</span></td>
+          <td><span class="badge badge-processing">In progress</span></td>
+        </tr>
+      
+        <tr>
+          <td>3</td>
+          <td>Instagram Likes - Global<br><span class="muted trunc">https://instagram.com/p/abc</span></td>
+          <td class="num-col">300</td>
+          <td class="num-col"><span class="px" data-m="360000">₦540</span></td>
+          <td><span class="badge badge-completed">Completed</span></td>
+        </tr>
+      
+        <tr>
+          <td>2</td>
+          <td>TikTok Likes - Global<br><span class="muted trunc">https://tiktok.com/@amaka/video/1</span></td>
+          <td class="num-col">1,000</td>
+          <td class="num-col"><span class="px" data-m="1800000">₦2,700</span></td>
+          <td><span class="badge badge-processing">In progress</span></td>
+        </tr>
+      
+        <tr>
+          <td>1</td>
+          <td>Instagram Followers - Global Mix [Refill 30D]<br><span class="muted trunc">https://instagram.com/amaka.styles</span></td>
+          <td class="num-col">500</td>
+          <td class="num-col"><span class="px" data-m="1680000">₦2,520</span></td>
+          <td><span class="badge badge-completed">Completed</span></td>
+        </tr>
+      
+      </tbody>
+    </table>
+  </div>
+  <p style="margin-top:12px"><a href="#/orders">See all orders &rarr;</a></p>
+  
+</div>
+</div>
+
+</section>
+<section class="view" data-page="order" hidden>
+  
+    
+  
+  
+<div class="container page account-layout">
+<aside class="side" aria-label="Your account">
+  <div class="who"><div class="avatar">A</div><div><strong>Amaka Obi</strong><span>amaka@example.com</span></div></div>
+  <a class="item" href="#/dashboard"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>Overview</a>
+  <a class="item" href="#/order"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg>New order</a>
+  <a class="item" href="#/orders"><svg viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13"/><circle cx="4" cy="6" r="1"/><circle cx="4" cy="12" r="1"/><circle cx="4" cy="18" r="1"/></svg>Orders</a>
+  <a class="item" href="#/funds"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="14" rx="3"/><path d="M3 10h18M16 15h2"/></svg>Add funds</a>
+  <a class="item" href="#/account"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg>Account</a>
+  <form method="post" data-go="index"><button class="btn small ghost">Log out</button></form>
+</aside>
+<div class="account-main">
+  <div class="page-head">
+    <h1>New order</h1>
+    <span class="chip">Balance <span class="px" data-m="12400000">₦18,600</span></span>
+  </div>
+
+  
+  <form method="post" class="card form wide" id="orderForm" novalidate>
+    
+    <div class="grid cols-2" style="gap:16px">
+      <label for="platform">Platform <select id="platform"></select></label>
+      <label for="kind">What do you want? <select id="kind"></select></label>
+    </div>
+    <label for="service">Service <select name="service_id" id="service" required></select></label>
+    <p id="svcInfo" class="muted" style="margin:-6px 0 0" aria-live="polite"></p>
+
+    <label for="link">Public link <span class="hint">Profile or post URL. Your account must be public.</span>
+      <input id="link" name="link" type="url" inputmode="url" placeholder="https://" value="" required maxlength="500"></label>
+
+    <label for="quantity" id="qtyWrap">Quantity <span class="hint" id="qtyHint"></span>
+      <input id="quantity" name="quantity" inputmode="numeric" autocomplete="off" value=""></label>
+    <label for="comments" id="commentsWrap" hidden>Comments <span class="hint">One comment per line. The quantity is the number of lines.</span>
+      <textarea id="comments" name="comments" maxlength="5000"></textarea></label>
+
+    <div class="total" aria-live="polite"><span>Total</span><strong id="total">&mdash;</strong></div>
+    <button class="btn primary big">Place order</button>
+    <p class="hint" style="margin:0">The amount is deducted from your wallet now. If the order fails or is canceled it is refunded automatically; partial deliveries are refunded for the undelivered part.</p>
+  </form>
+  <script>
+  (function () {
+    const SERVICES = [{"custom": false, "id": 17, "kind": "followers", "max": 50000, "min": 100, "name": "Facebook Page Followers - Global", "platform": "facebook", "rate": 6240000, "refill": false, "region": "Global"}, {"custom": false, "id": 5, "kind": "comments", "max": 1000, "min": 10, "name": "Instagram Comments - Random Emoji", "platform": "instagram", "rate": 12600000, "refill": false, "region": "Global"}, {"custom": true, "id": 6, "kind": "comments", "max": 500, "min": 5, "name": "Instagram Comments - Custom", "platform": "instagram", "rate": 16800000, "refill": false, "region": "Global"}, {"custom": false, "id": 1, "kind": "followers", "max": 50000, "min": 100, "name": "Instagram Followers - Global Mix [Refill 30D]", "platform": "instagram", "rate": 3360000, "refill": true, "region": "Global"}, {"custom": false, "id": 3, "kind": "followers", "max": 20000, "min": 100, "name": "Instagram Followers - Nigeria", "platform": "instagram", "rate": 7560000, "refill": false, "region": "Nigeria"}, {"custom": false, "id": 2, "kind": "followers", "max": 20000, "min": 100, "name": "Instagram Followers - USA", "platform": "instagram", "rate": 9520000, "refill": true, "region": "USA"}, {"custom": false, "id": 4, "kind": "likes", "max": 100000, "min": 50, "name": "Instagram Likes - Global", "platform": "instagram", "rate": 1200000, "refill": false, "region": "Global"}, {"custom": false, "id": 7, "kind": "views", "max": 1000000, "min": 100, "name": "Instagram Reels Views", "platform": "instagram", "rate": 160000, "refill": false, "region": "Global"}, {"custom": false, "id": 18, "kind": "members", "max": 100000, "min": 100, "name": "Telegram Channel Members - Global", "platform": "telegram", "rate": 4160000, "refill": false, "region": "Global"}, {"custom": false, "id": 8, "kind": "followers", "max": 50000, "min": 100, "name": "TikTok Followers - Global", "platform": "tiktok", "rate": 5120000, "refill": true, "region": "Global"}, {"custom": false, "id": 9, "kind": "likes", "max": 100000, "min": 50, "name": "TikTok Likes - Global", "platform": "tiktok", "rate": 1800000, "refill": false, "region": "Global"}, {"custom": false, "id": 10, "kind": "reposts", "max": 100000, "min": 50, "name": "TikTok Shares", "platform": "tiktok", "rate": 1400000, "refill": false, "region": "Global"}, {"custom": false, "id": 11, "kind": "views", "max": 5000000, "min": 100, "name": "TikTok Video Views", "platform": "tiktok", "rate": 80000, "refill": false, "region": "Global"}, {"custom": false, "id": 12, "kind": "followers", "max": 20000, "min": 100, "name": "X (Twitter) Followers - Global", "platform": "twitter", "rate": 10500000, "refill": false, "region": "Global"}, {"custom": false, "id": 14, "kind": "likes", "max": 20000, "min": 10, "name": "X (Twitter) Likes - Global", "platform": "twitter", "rate": 2880000, "refill": false, "region": "Global"}, {"custom": false, "id": 13, "kind": "reposts", "max": 10000, "min": 10, "name": "X (Twitter) Retweets - Global", "platform": "twitter", "rate": 6720000, "refill": false, "region": "Global"}, {"custom": false, "id": 15, "kind": "subscribers", "max": 5000, "min": 50, "name": "YouTube Subscribers - Global [Refill 30D]", "platform": "youtube", "rate": 36400000, "refill": true, "region": "Global"}, {"custom": false, "id": 16, "kind": "views", "max": 1000000, "min": 500, "name": "YouTube Views - Global", "platform": "youtube", "rate": 3520000, "refill": false, "region": "Global"}];
+    const PLATFORMS = {"audiomack": "Audiomack", "facebook": "Facebook", "instagram": "Instagram", "kick": "Kick", "linkedin": "LinkedIn", "other": "Other", "pinterest": "Pinterest", "quora": "Quora", "reddit": "Reddit", "snapchat": "Snapchat", "soundcloud": "SoundCloud", "spotify": "Spotify", "telegram": "Telegram", "threads": "Threads", "tiktok": "TikTok", "twitch": "Twitch", "twitter": "X (Twitter)", "whatsapp": "WhatsApp", "youtube": "YouTube"};
+    const KINDS = {"comments": "Comments", "followers": "Followers", "likes": "Likes", "members": "Members", "other": "Other", "reposts": "Reposts / Shares", "saves": "Saves", "subscribers": "Subscribers", "views": "Views"};
+    const RATE = "1500";
+    const CUR = (function(){try{return localStorage.getItem('bz_cur')||'ngn'}catch(e){return 'ngn'}})();
+    const WANT = "";
+
+    const $ = (id) => document.getElementById(id);
+    const platform = $('platform'), kind = $('kind'), service = $('service');
+    const qty = $('quantity'), comments = $('comments'), total = $('total');
+
+    function money(micros) {
+      const usd = micros / 1e6;
+      if (CUR === 'ngn') {
+        const n = usd * Number(RATE);
+        return '₦' + n.toLocaleString('en-NG', { maximumFractionDigits: n < 100 ? 2 : 0, minimumFractionDigits: n < 100 ? 2 : 0 });
+      }
+      return '$' + usd.toLocaleString('en-US', { minimumFractionDigits: usd > 0 && usd < 0.01 ? 4 : 2, maximumFractionDigits: usd > 0 && usd < 0.01 ? 4 : 2 });
+    }
+    function fill(sel, items) {
+      sel.textContent = '';
+      items.forEach(([value, label]) => { const o = document.createElement('option'); o.value = value; o.textContent = label; sel.appendChild(o); });
+    }
+    const uniq = (arr) => [...new Set(arr)];
+    const current = () => SERVICES.find((s) => String(s.id) === service.value);
+
+    function loadPlatforms() {
+      fill(platform, uniq(SERVICES.map((s) => s.platform)).map((p) => [p, PLATFORMS[p] || p]));
+      loadKinds();
+    }
+    function loadKinds() {
+      fill(kind, uniq(SERVICES.filter((s) => s.platform === platform.value).map((s) => s.kind)).map((k) => [k, KINDS[k] || k]));
+      loadServices();
+    }
+    function loadServices() {
+      fill(service, SERVICES.filter((s) => s.platform === platform.value && s.kind === kind.value)
+        .map((s) => [s.id, s.name + ' — ' + money(s.rate) + ' / 1,000']));
+      update();
+    }
+    function lines() { return comments.value.split('\n').filter((l) => l.trim()).length; }
+    function update() {
+      const s = current();
+      if (!s) { total.textContent = '—'; return; }
+      $('qtyWrap').hidden = s.custom;
+      $('commentsWrap').hidden = !s.custom;
+      $('svcInfo').textContent = s.region + ' · min ' + s.min.toLocaleString() + ' · max ' + s.max.toLocaleString() + (s.refill ? ' · refill guarantee' : '');
+      $('qtyHint').textContent = '(' + s.min.toLocaleString() + ' – ' + s.max.toLocaleString() + ')';
+      const n = s.custom ? lines() : parseInt(qty.value.replace(/,/g, ''), 10);
+      total.textContent = n > 0 ? money(Math.ceil(s.rate * n / 1000)) : '—';
+    }
+
+    platform.addEventListener('change', loadKinds);
+    kind.addEventListener('change', loadServices);
+    service.addEventListener('change', update);
+    qty.addEventListener('input', update);
+    comments.addEventListener('input', update);
+
+    loadPlatforms();
+    const want = SERVICES.find((s) => String(s.id) === String(WANT));
+    if (want) {
+      platform.value = want.platform; loadKinds();
+      kind.value = want.kind; loadServices();
+      service.value = String(want.id); update();
+    }
+  })();
+  </script>
+  
+</div>
+</div>
+
+</section>
+<section class="view" data-page="orders" hidden>
+  
+    
+  
+  
+<div class="container page account-layout">
+<aside class="side" aria-label="Your account">
+  <div class="who"><div class="avatar">A</div><div><strong>Amaka Obi</strong><span>amaka@example.com</span></div></div>
+  <a class="item" href="#/dashboard"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>Overview</a>
+  <a class="item" href="#/order"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg>New order</a>
+  <a class="item" href="#/orders"><svg viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13"/><circle cx="4" cy="6" r="1"/><circle cx="4" cy="12" r="1"/><circle cx="4" cy="18" r="1"/></svg>Orders</a>
+  <a class="item" href="#/funds"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="14" rx="3"/><path d="M3 10h18M16 15h2"/></svg>Add funds</a>
+  <a class="item" href="#/account"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg>Account</a>
+  <form method="post" data-go="index"><button class="btn small ghost">Log out</button></form>
+</aside>
+<div class="account-main">
+  <div class="page-head">
+    <h1>Your orders</h1>
+    <a class="btn primary" href="#/order">New order</a>
+  </div>
+  
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Service</th><th class="num-col">Qty</th><th class="num-col">Charge</th><th>Status</th><th>Placed</th></tr></thead>
+      <tbody>
+      
+        <tr>
+          <td>4</td>
+          <td>YouTube Views - Global<br><span class="muted trunc" title="https://youtube.com/watch?v=xyz">https://youtube.com/watch?v=xyz</span></td>
+          <td class="num-col">2,000
+            </td>
+          <td class="num-col"><span class="px" data-m="7040000">₦10,560</span>
+            </td>
+          <td><span class="badge badge-processing">In progress</span></td>
+          <td class="muted">12 Oct 2026, 11:52</td>
+        </tr>
+      
+        <tr>
+          <td>3</td>
+          <td>Instagram Likes - Global<br><span class="muted trunc" title="https://instagram.com/p/abc">https://instagram.com/p/abc</span></td>
+          <td class="num-col">300
+            </td>
+          <td class="num-col"><span class="px" data-m="360000">₦540</span>
+            </td>
+          <td><span class="badge badge-completed">Completed</span></td>
+          <td class="muted">12 Oct 2026, 11:52</td>
+        </tr>
+      
+        <tr>
+          <td>2</td>
+          <td>TikTok Likes - Global<br><span class="muted trunc" title="https://tiktok.com/@amaka/video/1">https://tiktok.com/@amaka/video/1</span></td>
+          <td class="num-col">1,000
+            </td>
+          <td class="num-col"><span class="px" data-m="1800000">₦2,700</span>
+            </td>
+          <td><span class="badge badge-processing">In progress</span></td>
+          <td class="muted">12 Oct 2026, 11:52</td>
+        </tr>
+      
+        <tr>
+          <td>1</td>
+          <td>Instagram Followers - Global Mix [Refill 30D]<br><span class="muted trunc" title="https://instagram.com/amaka.styles">https://instagram.com/amaka.styles</span></td>
+          <td class="num-col">500
+            </td>
+          <td class="num-col"><span class="px" data-m="1680000">₦2,520</span>
+            </td>
+          <td><span class="badge badge-completed">Completed</span></td>
+          <td class="muted">12 Oct 2026, 11:52</td>
+        </tr>
+      
+      </tbody>
+    </table>
+  </div>
+  
+
+
+  
+</div>
+</div>
+
+</section>
+<section class="view" data-page="funds" hidden>
+  
+    
+  
+  
+<div class="container page account-layout">
+<aside class="side" aria-label="Your account">
+  <div class="who"><div class="avatar">A</div><div><strong>Amaka Obi</strong><span>amaka@example.com</span></div></div>
+  <a class="item" href="#/dashboard"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>Overview</a>
+  <a class="item" href="#/order"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg>New order</a>
+  <a class="item" href="#/orders"><svg viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13"/><circle cx="4" cy="6" r="1"/><circle cx="4" cy="12" r="1"/><circle cx="4" cy="18" r="1"/></svg>Orders</a>
+  <a class="item" href="#/funds"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="14" rx="3"/><path d="M3 10h18M16 15h2"/></svg>Add funds</a>
+  <a class="item" href="#/account"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg>Account</a>
+  <form method="post" data-go="index"><button class="btn small ghost">Log out</button></form>
+</aside>
+<div class="account-main">
+  <div class="page-head"><h1>Add funds</h1></div>
+  <div class="grid cols-2" style="margin-bottom:24px">
+    <div class="stat balance-card"><div class="label">Wallet balance</div><div class="value"><span class="px" data-m="12400000">₦18,600</span></div></div>
+    <div class="card">
+      <h3>Pay in Naira</h3>
+      
+      <form method="post" class="form">
+        
+        <label>Amount (₦) <span class="hint">Minimum ₦500 &middot; ₦1500 = $1</span>
+          <input name="amount_ngn" inputmode="decimal" placeholder="e.g. 5000" required></label>
+        <button class="btn primary">Continue to payment</button>
+      </form>
+      
+    </div>
+  </div>
+  <div class="card" style="margin-bottom:24px">
+    <h3>Paying from outside Nigeria? Use crypto</h3>
+    
+    <form method="post" class="form">
+      <input type="hidden" name="method" value="crypto">
+      <label>Amount (US$) <span class="hint">Minimum $3. Pay with USDT, USDC, Bitcoin, Ethereum, Litecoin and more on the next page. Your balance updates automatically once the network confirms it.</span>
+        <input name="amount_usd" inputmode="decimal" placeholder="e.g. 10" required></label>
+      <button class="btn primary">Pay with crypto</button>
+    </form>
+    
+  </div>
+
+  <h2 style="font-size:1.2rem">Wallet history</h2>
+  
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Date</th><th>Details</th><th class="num-col">Amount</th><th class="num-col">Balance</th></tr></thead>
+      <tbody>
+      
+        <tr>
+          <td class="muted">12 Oct 2026, 11:52</td>
+          <td>Top-up ₦30,000</td>
+          <td class="num-col" style="color: var(--ok)">+<span class="px" data-m="20000000">₦30,000</span></td>
+          <td class="num-col"><span class="px" data-m="20000000">₦30,000</span></td>
+        </tr>
+      
+        <tr>
+          <td class="muted">12 Oct 2026, 11:52</td>
+          <td>Order #4</td>
+          <td class="num-col" style="color: var(--navy)"><span class="px" data-m="-7040000">₦-10,560</span></td>
+          <td class="num-col"><span class="px" data-m="1520000">₦2,280</span></td>
+        </tr>
+      
+        <tr>
+          <td class="muted">12 Oct 2026, 11:52</td>
+          <td>Order #3</td>
+          <td class="num-col" style="color: var(--navy)"><span class="px" data-m="-360000">₦-540</span></td>
+          <td class="num-col"><span class="px" data-m="8560000">₦12,840</span></td>
+        </tr>
+      
+        <tr>
+          <td class="muted">12 Oct 2026, 11:52</td>
+          <td>Order #2</td>
+          <td class="num-col" style="color: var(--navy)"><span class="px" data-m="-1800000">₦-2,700</span></td>
+          <td class="num-col"><span class="px" data-m="8920000">₦13,380</span></td>
+        </tr>
+      
+        <tr>
+          <td class="muted">12 Oct 2026, 11:52</td>
+          <td>Order #1</td>
+          <td class="num-col" style="color: var(--navy)"><span class="px" data-m="-1680000">₦-2,520</span></td>
+          <td class="num-col"><span class="px" data-m="10720000">₦16,080</span></td>
+        </tr>
+      
+      </tbody>
+    </table>
+  </div>
+  
+</div>
+</div>
+
+</section>
+<section class="view" data-page="account" hidden>
+  
+    
+  
+  
+<div class="container page account-layout">
+<aside class="side" aria-label="Your account">
+  <div class="who"><div class="avatar">A</div><div><strong>Amaka Obi</strong><span>amaka@example.com</span></div></div>
+  <a class="item" href="#/dashboard"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>Overview</a>
+  <a class="item" href="#/order"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg>New order</a>
+  <a class="item" href="#/orders"><svg viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13"/><circle cx="4" cy="6" r="1"/><circle cx="4" cy="12" r="1"/><circle cx="4" cy="18" r="1"/></svg>Orders</a>
+  <a class="item" href="#/funds"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="14" rx="3"/><path d="M3 10h18M16 15h2"/></svg>Add funds</a>
+  <a class="item" href="#/account"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg>Account</a>
+  <form method="post" data-go="index"><button class="btn small ghost">Log out</button></form>
+</aside>
+<div class="account-main">
+  <div class="page-head"><h1>Account</h1></div>
+  <div class="card form wide">
+    <p class="muted" style="margin:0">amaka@example.com</p>
+    <h3>Change password</h3>
+    <form method="post" class="form">
+      
+      <label>Current password <input type="password" name="current_password" autocomplete="current-password" required></label>
+      <label>New password <span class="hint">At least 8 characters.</span><input type="password" name="new_password" autocomplete="new-password" minlength="8" required></label>
+      <label>Confirm new password <input type="password" name="confirm_password" autocomplete="new-password" minlength="8" required></label>
+      <button class="btn primary">Change password</button>
+    </form>
+    <p class="muted small-print">Changing your password signs you out on other devices. Forgot your password? Contact support.</p>
+  </div>
+</div>
+</div>
+
+</section>
+</main>
 <footer class="site-footer">
   <div class="container foot">
     <div>
 <span class="wordmark">
 <svg viewBox="0 0 120 120" width="26" height="26" aria-hidden="true" focusable="false"><rect width="120" height="120" rx="30" fill="#5B3DF5"/><path d="M32 72 L60 44 L88 72" fill="none" stroke="#fff" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/><path d="M32 96 L60 68 L88 96" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/><circle cx="60" cy="24" r="7" fill="#FFB020"/></svg><span class="wm-text">Boost<span>rize</span></span></span><p class="muted small-print">Social media growth services. We never ask for your password &mdash; only a public link.</p></div>
     <div class="foot-links">
-      <a href="services.html">Services</a>
-      <a href="terms.html">Terms &amp; refunds</a>
+      <a href="#/services">Services</a>
+      <a href="#/terms">Terms &amp; refunds</a>
       
     </div>
     <p class="muted small-print">&copy; 2026 Boostrize. Results are delivered by third-party providers and are not guaranteed to be permanent.</p>
   </div>
 </footer>
-<script>/* Boostrize: tiny, dependency-free polish. The site works fine without it. */
+<script>
+/* Boostrize: tiny, dependency-free polish. The site works fine without it. */
 (function () {
   var d = document, reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
   d.documentElement.classList.add('js');
@@ -481,7 +1286,75 @@ tbody tr:nth-child(2) { animation-delay: .04s; } tbody tr:nth-child(3) { animati
     if (e.persisted) d.querySelectorAll('.busy').forEach(function (b) { b.classList.remove('busy'); });
   });
 })();
+
 </script>
-<script>document.addEventListener('submit',function(e){e.preventDefault();alert('This is the static design preview. Run the Flask app (see DEPLOY.md) for working sign-up, payments and orders.');},true);</script>
+<script>
+var NAMES = ["index", "services", "login", "register", "terms", "dashboard", "order", "orders", "funds", "account"], TITLES = {"index": "Boostrize: grow your social media", "services": "Services &amp; prices | Boostrize", "login": "Log in | Boostrize", "register": "Create account | Boostrize", "terms": "Terms &amp; refunds | Boostrize", "dashboard": "Dashboard | Boostrize", "order": "New order | Boostrize", "orders": "Orders | Boostrize", "funds": "Add funds | Boostrize", "account": "Account | Boostrize"};
+
+(function () {
+  var d = document, RATE = 1500, AUTHPAGES = ['dashboard','order','orders','funds','account'];
+  var cur = store('bz_cur') || 'ngn', logged = store('bz_logged') === '1';
+  function store(k, v) { try { if (v === undefined) return localStorage.getItem(k); if (v === null) localStorage.removeItem(k); else localStorage.setItem(k, v); } catch (e) {} }
+  function money(m) {
+    var v = m / 1e6;
+    if (cur === 'usd') return '$' + (v !== 0 && Math.abs(v) < .01 ? v.toFixed(4) : v.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}));
+    var n = v * RATE; return '₦' + (Math.abs(n) < 100 ? n.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}) : Math.round(n).toLocaleString('en-US'));
+  }
+  function paint() {
+    d.querySelectorAll('.px').forEach(function (el) { el.textContent = money(+el.dataset.m); });
+    d.querySelectorAll('.seg button').forEach(function (b) { var on = b.value === cur; b.classList.toggle('on', on); b.setAttribute('aria-pressed', on); });
+  }
+  function parse() {
+    var h = location.hash.replace(/^#\/?/, ''), i = h.indexOf('?');
+    var name = (i < 0 ? h : h.slice(0, i)) || 'index';
+    return {name: name, qs: new URLSearchParams(i < 0 ? '' : h.slice(i + 1))};
+  }
+  function go(name, qs) { location.hash = '#/' + name + (qs ? '?' + qs : ''); }
+  function filterServices(qs) {
+    var plat = (qs.get('platform') || '').toLowerCase(), q = (qs.get('q') || '').toLowerCase();
+    var v = d.querySelector('[data-page=services]'), sel = v.querySelector('select[name=platform]'), inp = v.querySelector('input[name=q]');
+    inp.value = qs.get('q') || ''; sel.value = plat; if (sel.value !== plat) sel.value = '';
+    var label = sel.selectedOptions[0] ? sel.selectedOptions[0].textContent.toLowerCase() : '';
+    v.querySelectorAll('tbody tr').forEach(function (r) {
+      var t = r.textContent.toLowerCase();
+      r.style.display = ((!plat || t.indexOf(label) > -1) && (!q || t.indexOf(q) > -1)) ? '' : 'none';
+    });
+  }
+  function route() {
+    var r = parse(), name = names().indexOf(r.name) < 0 ? 'index' : r.name;
+    if (AUTHPAGES.indexOf(name) > -1 && !logged) { go('login'); return; }
+    d.querySelectorAll('.view').forEach(function (v) { v.hidden = v.dataset.page !== name; });
+    d.querySelectorAll('.hdr-guest').forEach(function (h) { h.style.display = logged ? 'none' : 'contents'; });
+    d.querySelectorAll('.hdr-auth').forEach(function (h) { h.style.display = logged ? 'contents' : 'none'; });
+    d.title = TITLES[name] || 'Boostrize';
+    d.querySelectorAll('.nav a, .side a.item').forEach(function (a) {
+      var on = a.getAttribute('href') === '#/' + name; a.classList.toggle('on', on && a.classList.contains('item'));
+      if (on) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
+    });
+    var view = d.querySelector('[data-page=' + name + ']'); view.style.animation = 'none'; void view.offsetWidth; view.style.animation = '';
+    view.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
+    if (name === 'services') filterServices(r.qs);
+    window.scrollTo(0, 0); paint();
+  }
+  function names() { return NAMES; }
+  d.addEventListener('submit', function (e) {
+    var f = e.target;
+    e.preventDefault(); e.stopImmediatePropagation();
+    if (f.classList.contains('seg')) { cur = (e.submitter && e.submitter.value) || 'ngn'; store('bz_cur', cur); paint(); return; }
+    if ((f.method || '').toLowerCase() === 'get') { go('services', new URLSearchParams(new FormData(f)).toString()); return; }
+    var act = f.getAttribute('data-go');
+    if (act === 'dashboard') { logged = true; store('bz_logged', '1'); go('dashboard'); return; }
+    if (act === 'index') { logged = false; store('bz_logged', null); go('index'); return; }
+    toast('Demo only – nothing was sent.');
+  }, true);
+  d.addEventListener('change', function (e) {
+    if (e.target.matches('[data-page=services] select[name=platform]')) go('services', new URLSearchParams(new FormData(e.target.form)).toString());
+  });
+  function toast(t) { var el = d.createElement('div'); el.className = 'preview-toast'; el.textContent = t; d.body.appendChild(el); setTimeout(function () { el.remove(); }, 2800); }
+  window.addEventListener('hashchange', route);
+  route();
+})();
+
+</script>
 </body>
 </html>

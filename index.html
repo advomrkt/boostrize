@@ -3,15 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Boostrize: grow your social media</title>
-  <meta name="description" content="Boostrize: followers, likes, comments and reposts for Instagram, TikTok, X, YouTube and more. Pay in Naira.">
+  <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAgMTIwIj48cmVjdCB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCIgcng9IjMwIiBmaWxsPSIjNUIzREY1Ii8+PHBhdGggZD0iTTMyIDcyIEw2MCA0NCBMODggNzIiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIxMSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTMyIDk2IEw2MCA2OCBMODggOTYiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLW9wYWNpdHk9Ii41IiBzdHJva2Utd2lkdGg9IjExIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48Y2lyY2xlIGN4PSI2MCIgY3k9IjI0IiByPSI3IiBmaWxsPSIjRkZCMDIwIi8+PC9zdmc+Cg==">
+<title>Boostrize: grow your social media</title>
+  <meta name="description" content="Boostrize: followers, likes, comments and reposts for Instagram, TikTok, X, YouTube and more. Pay in Naira or crypto.">
   <meta name="theme-color" content="#5B3DF5">
-  <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAgMTIwIj48cmVjdCB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCIgcng9IjMwIiBmaWxsPSIjNUIzREY1Ii8+PHBhdGggZD0iTTMyIDcyIEw2MCA0NCBMODggNzIiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIxMSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTMyIDk2IEw2MCA2OCBMODggOTYiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLW9wYWNpdHk9Ii41IiBzdHJva2Utd2lkdGg9IjExIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48Y2lyY2xlIGN4PSI2MCIgY3k9IjI0IiByPSI3IiBmaWxsPSIjRkZCMDIwIi8+PC9zdmc+Cg==" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+          <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-:root {
+  <style>:root {
   --violet: #5B3DF5;
   --violet-dark: #4528D8;
   --violet-soft: #EEEAFF;
@@ -85,7 +84,7 @@ p { margin: 0 0 1em; }
 
 /* layout blocks */
 .section { padding: 56px 0; }
-.page { padding: 32px 0 64px; }
+.page { padding-top: 32px; padding-bottom: 64px; }
 .page-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 20px; }
 .page-head h1 { font-size: clamp(1.6rem, 4vw, 2.2rem); margin: 0; }
 .card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; }
@@ -172,8 +171,90 @@ details p { margin: 10px 0 0; color: var(--muted); }
   .section { padding: 40px 0; }
   .card { padding: 18px; }
 }
-@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 
+/* ===================== motion ===================== */
+:root { --ease: cubic-bezier(.22,.8,.3,1); }
+
+/* smooth page-to-page transitions (Chrome, Edge, Safari); header stays put while the page body fades */
+@view-transition { navigation: auto; }
+.site-header { view-transition-name: site-header; }
+main { view-transition-name: page; }
+::view-transition-old(page) { animation: .18s var(--ease) both vt-out; }
+::view-transition-new(page) { animation: .32s var(--ease) both vt-in; }
+@keyframes vt-out { to { opacity: 0; transform: translateY(-6px); } }
+@keyframes vt-in { from { opacity: 0; transform: translateY(14px); } }
+/* browsers without view transitions get a simple fade-in instead */
+@supports not (view-transition-name: none) { main { animation: vt-in .35s var(--ease) both; } }
+
+/* things that glide in */
+.flash { animation: flash-in .4s var(--ease) both; }
+@keyframes flash-in { from { opacity: 0; transform: translateY(-8px); } }
+.hero h1, .hero .lead, .hero-cta, .hero .small-print { animation: rise .7s var(--ease) both; }
+.hero .lead { animation-delay: .08s; } .hero-cta { animation-delay: .16s; } .hero .small-print { animation-delay: .24s; }
+@keyframes rise { from { opacity: 0; transform: translateY(18px); } }
+.hero { position: relative; overflow: hidden; }
+.hero::after { content: ""; position: absolute; width: 380px; height: 380px; right: -80px; top: -120px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,176,32,.28), transparent 65%); animation: drift 9s ease-in-out infinite alternate; pointer-events: none; }
+@keyframes drift { to { transform: translate(-40px, 50px) scale(1.12); } }
+
+/* scroll reveal (added by app.js; without JS everything is simply visible) */
+.js .reveal { opacity: 0; transform: translateY(18px); transition: opacity .55s var(--ease), transform .55s var(--ease); transition-delay: var(--d, 0s); }
+.js .reveal.in { opacity: 1; transform: none; }
+
+/* hover / press feel */
+.card, .stat, .tile { transition: transform .2s var(--ease), box-shadow .2s var(--ease), border-color .2s; }
+.card:hover, .stat:hover { box-shadow: 0 10px 28px rgba(60,40,160,.10); }
+.tile:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(91,61,245,.16); }
+.btn { transition: transform .15s var(--ease), background .15s, border-color .15s, color .15s, box-shadow .15s; }
+.btn:hover { transform: translateY(-1px); }
+.btn.primary:hover { box-shadow: 0 8px 20px rgba(91,61,245,.35); }
+.btn:active { transform: scale(.97); }
+.btn.busy { opacity: .75; pointer-events: none; }
+.btn.busy::after { content: ""; width: 14px; height: 14px; border-radius: 50%; border: 2px solid currentColor; border-right-color: transparent; animation: spin .7s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.nav a { position: relative; }
+.nav a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 2px; height: 2px; background: var(--violet); transform: scaleX(0); transform-origin: left; transition: transform .25s var(--ease); }
+.nav a:hover::after, .nav a[aria-current="page"]::after { transform: scaleX(1); }
+.seg button { transition: background .2s, color .2s; }
+details { transition: border-color .2s; } details[open] { border-color: var(--violet); }
+details[open] p { animation: rise .3s var(--ease) both; }
+.badge-processing, .badge-pending { animation: pulse 2s ease-in-out infinite; }
+@keyframes pulse { 50% { box-shadow: 0 0 0 5px rgba(91,61,245,.12); } }
+tbody tr { animation: rise .4s var(--ease) both; }
+tbody tr:nth-child(2) { animation-delay: .04s; } tbody tr:nth-child(3) { animation-delay: .08s; } tbody tr:nth-child(4) { animation-delay: .12s; } tbody tr:nth-child(n+5) { animation-delay: .16s; }
+.wordmark svg { transition: transform .4s var(--ease); } .brand:hover .wordmark svg { transform: rotate(-8deg) scale(1.08); }
+
+/* ===================== account dashboard layout ===================== */
+.account-layout { display: grid; grid-template-columns: 230px minmax(0, 1fr); gap: 24px; align-items: start; }
+.side { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 14px; position: sticky; top: 84px; }
+.side .who { display: flex; align-items: center; gap: 10px; padding: 6px 6px 14px; border-bottom: 1px solid var(--line); margin-bottom: 8px; min-width: 0; }
+.avatar { flex: none; width: 40px; height: 40px; border-radius: 12px; background: var(--violet); color: #fff; font-weight: 700; display: grid; place-items: center; }
+.who strong { display: block; font-size: .95rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.who span { display: block; font-size: .75rem; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.side a.item { display: flex; align-items: center; gap: 10px; padding: 11px 12px; border-radius: 10px; color: var(--navy); font-weight: 600; font-size: .93rem; text-decoration: none; transition: background .2s, transform .2s var(--ease); }
+.side a.item svg { width: 18px; height: 18px; flex: none; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.side a.item:hover { background: var(--violet-soft); transform: translateX(3px); }
+.side a.item.on { background: var(--violet-soft); color: var(--violet-dark); box-shadow: inset 3px 0 0 var(--violet); }
+.side form { margin: 8px 0 0; }
+.side .btn { width: 100%; }
+.account-main { min-width: 0; }
+.account-main > .page-head:first-child h1 { font-size: clamp(1.5rem, 3.5vw, 2rem); }
+.stats-5 { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); margin-bottom: 24px; }
+@media (max-width: 600px) { .stats-5 > :last-child:nth-child(odd) { grid-column: 1 / -1; } }
+.stat .value { font-size: 1.5rem; }
+.stat.accent { border-color: var(--violet); background: linear-gradient(135deg, #fff, var(--violet-soft)); }
+@media (max-width: 860px) {
+  .account-layout { grid-template-columns: 1fr; gap: 14px; }
+  .side { position: static; display: flex; gap: 4px; overflow-x: auto; padding: 8px; scrollbar-width: none; }
+  .side .who, .side form { display: none; }
+  .side a.item { white-space: nowrap; padding: 10px 14px; }
+  .side a.item:hover { transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .js .reveal { opacity: 1; transform: none; }
+  @view-transition { navigation: none; }
+}
 </style>
 </head>
 <body>
@@ -184,14 +265,18 @@ details p { margin: 10px 0 0; color: var(--muted); }
 <span class="wordmark">
 <svg viewBox="0 0 120 120" width="34" height="34" aria-hidden="true" focusable="false"><rect width="120" height="120" rx="30" fill="#5B3DF5"/><path d="M32 72 L60 44 L88 72" fill="none" stroke="#fff" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/><path d="M32 96 L60 68 L88 96" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/><circle cx="60" cy="24" r="7" fill="#FFB020"/></svg><span class="wm-text">Boost<span>rize</span></span></span></a>
     <nav class="nav" aria-label="Main">
-      <a href="#">Services</a>
+      <a href="services.html">Services</a>
       
     </nav>
     <div class="actions">
+      <form method="post" action="#" class="seg" aria-label="Display currency">
+        
+        <button name="currency" value="usd" class="" aria-pressed="false">USD</button>
+        <button name="currency" value="ngn" class="on" aria-pressed="true">₦ NGN</button>
+      </form>
       
-      
-        <a class="btn small ghost" href="#">Log in</a>
-        <a class="btn small primary" href="#">Sign up</a>
+        <a class="btn small ghost" href="login.html">Log in</a>
+        <a class="btn small primary" href="register.html">Sign up</a>
       
     </div>
   </div>
@@ -205,16 +290,64 @@ details p { margin: 10px 0 0; color: var(--muted); }
 <section class="hero">
   <div class="container">
     <h1>Grow your social media <em>faster</em>.</h1>
-    <p class="lead">Followers, likes, comments and reposts for Instagram, TikTok, X, YouTube and more. Choose a service, paste a public link, pay in Naira, and track every order from one dashboard.</p>
+    <p class="lead">Followers, likes, comments and reposts for Instagram, TikTok, X, YouTube and more. Choose a service, paste a public link, pay in Naira or crypto, and track every order from one dashboard.</p>
     <div class="hero-cta">
       
-        <a class="btn primary big" href="#">Create free account</a>
+        <a class="btn primary big" href="register.html">Create free account</a>
       
-      <a class="btn big" href="#">See services &amp; prices</a>
+      <a class="btn big" href="services.html">See services &amp; prices</a>
     </div>
     <p class="muted small-print">No password needed for your social accounts &mdash; only a public link.</p>
   </div>
 </section>
+
+
+<section class="section">
+  <div class="container">
+    <h2>Start small</h2>
+    <p class="muted" style="margin-top:-6px">Low-cost packs to try us out. Top up from ₦504.</p>
+    <div class="grid cols-3">
+      
+      <a class="card tile" href="order.html">
+        <strong>100 Instagram Followers</strong>
+        <span class="muted">Global &middot; refill</span><br>
+        <span class="from">₦504</span>
+      </a>
+      
+      <a class="card tile" href="order.html">
+        <strong>500 Instagram Likes</strong>
+        <span class="muted">Global</span><br>
+        <span class="from">₦900</span>
+      </a>
+      
+      <a class="card tile" href="order.html">
+        <strong>100 TikTok Followers</strong>
+        <span class="muted">Global &middot; refill</span><br>
+        <span class="from">₦768</span>
+      </a>
+      
+      <a class="card tile" href="order.html">
+        <strong>500 TikTok Likes</strong>
+        <span class="muted">Global</span><br>
+        <span class="from">₦1,350</span>
+      </a>
+      
+      <a class="card tile" href="order.html">
+        <strong>1,000 YouTube Views</strong>
+        <span class="muted">Global</span><br>
+        <span class="from">₦5,280</span>
+      </a>
+      
+      <a class="card tile" href="order.html">
+        <strong>100 X (Twitter) Followers</strong>
+        <span class="muted">Global</span><br>
+        <span class="from">₦1,575</span>
+      </a>
+      
+    </div>
+  </div>
+</section>
+
 
 <section class="section">
   <div class="container">
@@ -222,40 +355,40 @@ details p { margin: 10px 0 0; color: var(--muted); }
     
     <div class="grid cols-4">
       
-      <a class="card tile" href="#">
+      <a class="card tile" href="services.html">
         <strong>Facebook</strong>
         <span class="muted">1 service</span><br>
-        <span class="from">from $6.24 / 1,000</span>
+        <span class="from">from ₦9,360 / 1,000</span>
       </a>
       
-      <a class="card tile" href="#">
+      <a class="card tile" href="services.html">
         <strong>Instagram</strong>
         <span class="muted">7 services</span><br>
-        <span class="from">from $0.13 / 1,000</span>
+        <span class="from">from ₦240 / 1,000</span>
       </a>
       
-      <a class="card tile" href="#">
+      <a class="card tile" href="services.html">
         <strong>Telegram</strong>
         <span class="muted">1 service</span><br>
-        <span class="from">from $4.16 / 1,000</span>
+        <span class="from">from ₦6,240 / 1,000</span>
       </a>
       
-      <a class="card tile" href="#">
+      <a class="card tile" href="services.html">
         <strong>TikTok</strong>
         <span class="muted">4 services</span><br>
-        <span class="from">from $0.06 / 1,000</span>
+        <span class="from">from ₦120 / 1,000</span>
       </a>
       
-      <a class="card tile" href="#">
+      <a class="card tile" href="services.html">
         <strong>X (Twitter)</strong>
         <span class="muted">3 services</span><br>
-        <span class="from">from $2.88 / 1,000</span>
+        <span class="from">from ₦4,320 / 1,000</span>
       </a>
       
-      <a class="card tile" href="#">
+      <a class="card tile" href="services.html">
         <strong>YouTube</strong>
         <span class="muted">2 services</span><br>
-        <span class="from">from $3.52 / 1,000</span>
+        <span class="from">from ₦5,280 / 1,000</span>
       </a>
       
     </div>
@@ -267,7 +400,7 @@ details p { margin: 10px 0 0; color: var(--muted); }
   <div class="container">
     <h2>How it works</h2>
     <div class="grid cols-3">
-      <div class="card"><div class="num">1</div><h3>Add funds</h3><p class="muted" style="margin:0">Top up your wallet in Naira with card, bank transfer or USSD. Prices can be viewed in USD or ₦.</p></div>
+      <div class="card"><div class="num">1</div><h3>Add funds</h3><p class="muted" style="margin:0">Top up in Naira (card, bank transfer, USSD) or with crypto from anywhere. Prices show in USD or ₦.</p></div>
       <div class="card"><div class="num">2</div><h3>Choose a service</h3><p class="muted" style="margin:0">Pick the platform, the type and the region, paste your public link and set a quantity.</p></div>
       <div class="card"><div class="num">3</div><h3>Track delivery</h3><p class="muted" style="margin:0">Watch progress in your orders list. Failed or canceled orders are refunded to your wallet automatically.</p></div>
     </div>
@@ -291,8 +424,8 @@ details p { margin: 10px 0 0; color: var(--muted); }
     <h2>Questions</h2>
     <details><summary>Do you need my password?</summary><p>Never. We only need the public link to your profile or post. Keep your account public while an order is running.</p></details>
     <details><summary>How fast is delivery?</summary><p>Most orders start within minutes to a few hours, depending on the service and quantity. You can follow progress in your orders list.</p></details>
-    <details><summary>Will the results last?</summary><p>Delivery comes from third-party providers and social platforms can remove accounts or followers at any time. Services with the refill tag are topped up if the count drops within the stated period. We can&rsquo;t guarantee permanence &mdash; see our <a href="#">terms</a>.</p></details>
-    <details><summary>How do I pay?</summary><p>Nigerian customers can pay in Naira by card, bank transfer or USSD. If you&rsquo;re paying from abroad, contact support to arrange another payment method.</p></details>
+    <details><summary>Will the results last?</summary><p>Delivery comes from third-party providers and social platforms can remove accounts or followers at any time. Services with the refill tag are topped up if the count drops within the stated period. We can&rsquo;t guarantee permanence &mdash; see our <a href="terms.html">terms</a>.</p></details>
+    <details><summary>How do I pay?</summary><p>Nigerian customers pay in Naira by card, bank transfer or USSD, from ₦500. Customers abroad can pay with crypto (USDT, USDC, Bitcoin and others).</p></details>
   </div></div>
 </section>
 
@@ -304,12 +437,51 @@ details p { margin: 10px 0 0; color: var(--muted); }
 <span class="wordmark">
 <svg viewBox="0 0 120 120" width="26" height="26" aria-hidden="true" focusable="false"><rect width="120" height="120" rx="30" fill="#5B3DF5"/><path d="M32 72 L60 44 L88 72" fill="none" stroke="#fff" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/><path d="M32 96 L60 68 L88 96" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/><circle cx="60" cy="24" r="7" fill="#FFB020"/></svg><span class="wm-text">Boost<span>rize</span></span></span><p class="muted small-print">Social media growth services. We never ask for your password &mdash; only a public link.</p></div>
     <div class="foot-links">
-      <a href="#">Services</a>
-      <a href="#">Terms &amp; refunds</a>
+      <a href="services.html">Services</a>
+      <a href="terms.html">Terms &amp; refunds</a>
       
     </div>
     <p class="muted small-print">&copy; 2026 Boostrize. Results are delivered by third-party providers and are not guaranteed to be permanent.</p>
   </div>
 </footer>
+<script>/* Boostrize: tiny, dependency-free polish. The site works fine without it. */
+(function () {
+  var d = document, reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  d.documentElement.classList.add('js');
+
+  // mark the current page in the navigation
+  d.querySelectorAll('.nav a, .side a.item').forEach(function (a) {
+    if (a.pathname === location.pathname) { a.setAttribute('aria-current', 'page'); a.classList.add('on'); }
+  });
+
+  // reveal blocks as they scroll into view (staggered inside grids)
+  var targets = d.querySelectorAll('.section .card, .section h2, .grid > .card, .grid > .stat, .stats-5 > .stat, .table-wrap, details');
+  targets.forEach(function (el, i) {
+    el.classList.add('reveal');
+    var idx = Array.prototype.indexOf.call(el.parentNode.children, el);
+    el.style.setProperty('--d', Math.min(idx, 6) * 0.06 + 's');
+  });
+  if (reduce || !('IntersectionObserver' in window)) {
+    targets.forEach(function (el) { el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+    targets.forEach(function (el) { io.observe(el); });
+  }
+
+  // stop double-submits (payments!) and show a spinner while a form is sending
+  d.addEventListener('submit', function (e) {
+    var f = e.target, b = f.querySelector('button.primary, button[type=submit]:not([name])');
+    if (!b || f.dataset.sent) return;
+    f.dataset.sent = '1'; b.classList.add('busy');
+    setTimeout(function () { delete f.dataset.sent; b.classList.remove('busy'); }, 8000);
+  });
+  window.addEventListener('pageshow', function (e) {
+    if (e.persisted) d.querySelectorAll('.busy').forEach(function (b) { b.classList.remove('busy'); });
+  });
+})();
+</script>
+<script>document.addEventListener('submit',function(e){e.preventDefault();alert('This is the static design preview. Run the Flask app (see DEPLOY.md) for working sign-up, payments and orders.');},true);</script>
 </body>
 </html>

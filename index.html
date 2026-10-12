@@ -225,31 +225,66 @@ tbody tr { animation: rise .4s var(--ease) both; }
 tbody tr:nth-child(2) { animation-delay: .04s; } tbody tr:nth-child(3) { animation-delay: .08s; } tbody tr:nth-child(4) { animation-delay: .12s; } tbody tr:nth-child(n+5) { animation-delay: .16s; }
 .wordmark svg { transition: transform .4s var(--ease); } .brand:hover .wordmark svg { transform: rotate(-8deg) scale(1.08); }
 
-/* ===================== account dashboard layout ===================== */
-.account-layout { display: grid; grid-template-columns: 230px minmax(0, 1fr); gap: 24px; align-items: start; }
-.side { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 14px; position: sticky; top: 84px; }
-.side .who { display: flex; align-items: center; gap: 10px; padding: 6px 6px 14px; border-bottom: 1px solid var(--line); margin-bottom: 8px; min-width: 0; }
-.avatar { flex: none; width: 40px; height: 40px; border-radius: 12px; background: var(--violet); color: #fff; font-weight: 700; display: grid; place-items: center; }
-.who strong { display: block; font-size: .95rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.who span { display: block; font-size: .75rem; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.side a.item { display: flex; align-items: center; gap: 10px; padding: 11px 12px; border-radius: 10px; color: var(--navy); font-weight: 600; font-size: .93rem; text-decoration: none; transition: background .2s, transform .2s var(--ease); }
-.side a.item svg { width: 18px; height: 18px; flex: none; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-.side a.item:hover { background: var(--violet-soft); transform: translateX(3px); }
-.side a.item.on { background: var(--violet-soft); color: var(--violet-dark); box-shadow: inset 3px 0 0 var(--violet); }
-.side form { margin: 8px 0 0; }
-.side .btn { width: 100%; }
-.account-main { min-width: 0; }
-.account-main > .page-head:first-child h1 { font-size: clamp(1.5rem, 3.5vw, 2rem); }
-.stats-5 { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); margin-bottom: 24px; }
-@media (max-width: 600px) { .stats-5 > :last-child:nth-child(odd) { grid-column: 1 / -1; } }
+/* ===================== account area ===================== */
+.tabs { display: flex; gap: 6px; overflow-x: auto; padding: 4px; margin-bottom: 26px; background: #fff; border: 1px solid var(--line); border-radius: 999px; width: fit-content; max-width: 100%; scrollbar-width: none; }
+.tabs a { white-space: nowrap; padding: 9px 18px; border-radius: 999px; color: var(--navy); font-weight: 600; font-size: .92rem; text-decoration: none; transition: background .2s, color .2s; }
+.tabs a:hover { background: var(--violet-soft); }
+.tabs a.on { background: var(--navy); color: #fff; }
+.tab-bal { margin-left: 6px; font-size: .78rem; opacity: .75; }
+.eyebrow { text-transform: uppercase; letter-spacing: .12em; font-size: .72rem; font-weight: 700; color: var(--violet); margin: 0 0 6px; }
+.welcome { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap; margin-bottom: 22px; }
+.welcome h1 { font-size: clamp(1.7rem, 4vw, 2.4rem); margin: 0 0 4px; }
+.dash-top { display: grid; grid-template-columns: 1.4fr 1fr; gap: 16px; margin-bottom: 8px; }
+.wallet-hero { position: relative; overflow: hidden; border-radius: 22px; padding: 26px; color: #fff; background: linear-gradient(135deg, #5B3DF5 0%, #2B1B8F 60%, #0B1020 100%); }
+.wallet-hero::after { content: ""; position: absolute; width: 220px; height: 220px; right: -60px; top: -80px; border-radius: 50%; background: radial-gradient(circle, rgba(255,176,32,.45), transparent 65%); }
+.wallet-hero .eyebrow { color: #CFC6FF; }
+.big-num { font-size: clamp(2.2rem, 6vw, 3.2rem); font-weight: 700; letter-spacing: -0.04em; line-height: 1.1; }
+.wallet-note { color: #D9D3FF; font-size: .88rem; margin: 6px 0 16px; }
+.chips { display: flex; gap: 8px; flex-wrap: wrap; position: relative; z-index: 1; }
+.chip-btn { background: rgba(255,255,255,.14); color: #fff; border: 1px solid rgba(255,255,255,.25); padding: 8px 14px; border-radius: 999px; font-weight: 700; font-size: .85rem; text-decoration: none; transition: background .2s, transform .15s; }
+.chip-btn:hover { background: rgba(255,255,255,.26); color: #fff; transform: translateY(-1px); }
+.chip-btn.solid { background: var(--amber); border-color: var(--amber); color: var(--navy); }
+.chip-btn.solid:hover { background: #ffc24d; color: var(--navy); }
+.pulse { display: grid; align-content: center; gap: 2px; padding: 12px 22px; }
+.kv { display: flex; justify-content: space-between; align-items: baseline; padding: 11px 0; border-bottom: 1px dashed var(--line); font-size: .92rem; }
+.kv:last-child { border-bottom: 0; }
+.kv span { color: var(--muted); } .kv strong { font-size: 1.05rem; }
+.sec-title { font-size: 1.15rem; margin: 30px 0 12px; }
+.again .tile { padding: 18px; }
+.order-card { display: grid; gap: 6px; padding: 18px; }
+.oc-head { display: flex; justify-content: space-between; gap: 10px; align-items: flex-start; }
+.order-card p { margin: 0; font-size: .85rem; max-width: 100%; }
+.bar-track { height: 10px; border-radius: 99px; background: var(--violet-soft); overflow: hidden; margin-top: 6px; }
+.bar-track span { display: block; height: 100%; border-radius: 99px; background: linear-gradient(90deg, var(--violet), #8F7BFF); transition: width .8s var(--ease); animation: grow 1s var(--ease) both; }
+@keyframes grow { from { width: 0; } }
+.bar-meta, .oc-foot { display: flex; justify-content: space-between; font-size: .8rem; color: var(--muted); gap: 8px; flex-wrap: wrap; }
 .stat .value { font-size: 1.5rem; }
-.stat.accent { border-color: var(--violet); background: linear-gradient(135deg, #fff, var(--violet-soft)); }
-@media (max-width: 860px) {
-  .account-layout { grid-template-columns: 1fr; gap: 14px; }
-  .side { position: static; display: flex; gap: 4px; overflow-x: auto; padding: 8px; scrollbar-width: none; }
-  .side .who, .side form { display: none; }
-  .side a.item { white-space: nowrap; padding: 10px 14px; }
-  .side a.item:hover { transform: none; }
+@media (max-width: 760px) { .dash-top { grid-template-columns: 1fr; } .tabs { border-radius: 16px; } }
+/* back button */
+.backbar { padding-top: 14px; padding-bottom: 0; }
+.back { display: inline-flex; align-items: center; gap: 6px; font-weight: 700; font-size: .92rem; text-decoration: none; color: var(--navy); background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 7px 14px 7px 10px; min-height: 40px; transition: transform .15s var(--ease), border-color .15s, color .15s; }
+.back svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; transition: transform .2s var(--ease); }
+.back:hover { border-color: var(--violet); color: var(--violet-dark); }
+.back:hover svg { transform: translateX(-3px); }
+.forgot-link { justify-self: end; font-size: .88rem; font-weight: 600; margin-top: -8px; }
+
+/* full-screen logo loader (shown for ~3.5s on log in / sign up / log out) */
+.boot { position: fixed; inset: 0; z-index: 1000; display: grid; place-items: center; background: radial-gradient(900px 500px at 50% 40%, var(--violet-soft), var(--bg)); animation: boot-in .25s ease both; }
+.boot[hidden] { display: none !important; }
+.boot-inner { text-align: center; padding: 24px; }
+.boot-logo { display: inline-block; filter: drop-shadow(0 14px 28px rgba(91,61,245,.35)); animation: boot-pop 1.4s var(--ease) infinite; }
+.boot-logo svg { width: 88px; height: 88px; }
+.boot-logo path:first-of-type { animation: boot-chevron 1.4s ease-in-out infinite; }
+.boot-msg { margin: 22px 0 14px; font-weight: 700; font-size: 1.1rem; color: var(--navy); }
+.boot-bar { width: 200px; height: 6px; border-radius: 999px; background: var(--line); overflow: hidden; margin: 0 auto; }
+.boot-bar span { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--violet), var(--amber)); border-radius: inherit; animation: boot-fill var(--boot-ms, 3.5s) linear forwards; }
+@keyframes boot-in { from { opacity: 0; } }
+@keyframes boot-pop { 50% { transform: translateY(-8px) scale(1.05); } }
+@keyframes boot-chevron { 50% { transform: translateY(-4px); } }
+@keyframes boot-fill { to { width: 100%; } }
+@media (prefers-reduced-motion: reduce) {
+  .boot, .boot-logo, .boot-logo path, .boot-bar span { animation: none !important; }
+  .boot-bar span { width: 100%; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
@@ -298,10 +333,7 @@ tbody tr:nth-child(2) { animation-delay: .04s; } tbody tr:nth-child(3) { animati
     <nav class="nav" aria-label="Main">
       <a href="#/services">Services</a>
       
-        <a href="#/order">New order</a>
-        <a href="#/orders">Orders</a>
-        <a href="#/funds">Add funds</a>
-        <a href="#/account">Account</a>
+        <a href="#/dashboard">My dashboard</a>
         
       
     </nav>
@@ -313,7 +345,7 @@ tbody tr:nth-child(2) { animation-delay: .04s; } tbody tr:nth-child(3) { animati
       </form>
       
         <a class="chip" href="#/funds" title="Your balance"><span class="px" data-m="12400000">₦18,600</span></a>
-        <form method="post" data-go="index"><button class="btn small ghost">Log out</button></form>
+        <form method="post" data-go="index" data-d="3500" data-msg="Signing you out&hellip;"><button class="btn small ghost">Log out</button></form>
       
     </div>
   </div>
@@ -322,6 +354,7 @@ tbody tr:nth-child(2) { animation-delay: .04s; } tbody tr:nth-child(3) { animati
 <section class="view" data-page="index" hidden>
   
     
+  
   
   
 <section class="hero">
@@ -470,6 +503,9 @@ tbody tr:nth-child(2) { animation-delay: .04s; } tbody tr:nth-child(3) { animati
 <section class="view" data-page="services" hidden>
   
     
+  
+  
+  <div class="container backbar"><a class="back" href="#/index" data-back="1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>Back</a></div>
   
   
 <div class="container page">
@@ -755,14 +791,18 @@ tbody tr:nth-child(2) { animation-delay: .04s; } tbody tr:nth-child(3) { animati
     
   
   
+  <div class="container backbar"><a class="back" href="#/index" data-back="1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>Back</a></div>
+  
+  
 <div class="container">
   <div class="card auth-card">
     <h1 style="font-size:1.8rem">Welcome back</h1>
-    <form data-go="dashboard" method="post" class="form">
+    <form data-go="dashboard" method="post" class="form" data-d="3500" data-msg="Signing you in&hellip;">
       
       
       <label>Email <input type="email" name="email" value="" autocomplete="email" required autofocus></label>
       <label>Password <input type="password" name="password" autocomplete="current-password" required></label>
+      <a class="forgot-link" href="#/forgot">Forgot password?</a>
       <button class="btn primary">Log in</button>
     </form>
     <p class="muted" style="margin:16px 0 0">New here? <a href="#/register">Create an account</a></p>
@@ -775,10 +815,13 @@ tbody tr:nth-child(2) { animation-delay: .04s; } tbody tr:nth-child(3) { animati
     
   
   
+  <div class="container backbar"><a class="back" href="#/index" data-back="1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>Back</a></div>
+  
+  
 <div class="container">
   <div class="card auth-card">
     <h1 style="font-size:1.8rem">Create your account</h1>
-    <form data-go="dashboard" method="post" class="form">
+    <form data-go="dashboard" method="post" class="form" data-d="3500" data-msg="Creating your account&hellip;">
       
       <label>Name <span class="hint">(optional)</span> <input name="name" value="" autocomplete="name" maxlength="80"></label>
       <label>Email <input type="email" name="email" value="" autocomplete="email" required></label>
@@ -794,6 +837,9 @@ tbody tr:nth-child(2) { animation-delay: .04s; } tbody tr:nth-child(3) { animati
 <section class="view" data-page="terms" hidden>
   
     
+  
+  
+  <div class="container backbar"><a class="back" href="#/index" data-back="1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>Back</a></div>
   
   
 
@@ -834,49 +880,154 @@ tbody tr:nth-child(2) { animation-delay: .04s; } tbody tr:nth-child(3) { animati
 </div>
 
 </section>
+<section class="view" data-page="forgot" hidden>
+  
+    
+  
+  
+  <div class="container backbar"><a class="back" href="#/index" data-back="1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>Back</a></div>
+  
+  
+<div class="container">
+  <div class="card auth-card">
+    <h1 style="font-size:1.8rem">Forgot your password?</h1>
+    
+      <p class="muted">Enter your email and we&rsquo;ll send you a link to choose a new password.</p>
+      <form method="post" class="form" data-go="forgot-sent">
+        
+        <label>Email <input type="email" name="email" value="" autocomplete="email" required autofocus></label>
+        <button class="btn primary">Send reset link</button>
+      </form>
+      <p class="muted" style="margin:16px 0 0">Remembered it? <a href="#/login">Log in</a></p>
+    
+  </div>
+</div>
+
+</section>
+<section class="view" data-page="forgot-sent" hidden>
+  
+    
+  
+  
+  <div class="container backbar"><a class="back" href="#/index" data-back="1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>Back</a></div>
+  
+  
+<div class="container">
+  <div class="card auth-card">
+    <h1 style="font-size:1.8rem">Forgot your password?</h1>
+    
+      <p class="notice" style="background:var(--ok-bg);color:var(--ok)">If that email has a Boostrize account, a reset link is on its way. It works for 1 hour. Check your spam folder too.</p>
+      <p><a class="btn" href="#/login">Back to log in</a></p>
+    
+  </div>
+</div>
+
+</section>
 <section class="view" data-page="dashboard" hidden>
   
     
   
   
-<div class="container page account-layout">
-<aside class="side" aria-label="Your account">
-  <div class="who"><div class="avatar">A</div><div><strong>Amaka Obi</strong><span>amaka@example.com</span></div></div>
-  <a class="item" href="#/dashboard"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>Overview</a>
-  <a class="item" href="#/order"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg>New order</a>
-  <a class="item" href="#/orders"><svg viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13"/><circle cx="4" cy="6" r="1"/><circle cx="4" cy="12" r="1"/><circle cx="4" cy="18" r="1"/></svg>Orders</a>
-  <a class="item" href="#/funds"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="14" rx="3"/><path d="M3 10h18M16 15h2"/></svg>Add funds</a>
-  <a class="item" href="#/account"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg>Account</a>
-  <form method="post" data-go="index"><button class="btn small ghost">Log out</button></form>
-</aside>
-<div class="account-main">
-  <div class="page-head">
-    <h1>Hi, Amaka 👋</h1>
-    <a class="btn primary" href="#/order">New order</a>
-  </div>
-  <div class="stats-5">
-    <div class="stat balance-card"><div class="label">Wallet balance</div><div class="value"><span class="px" data-m="12400000">₦18,600</span></div>
-      <a class="btn small" style="margin-top:10px" href="#/funds">Add funds</a></div>
-    <div class="stat"><div class="label">Total spent</div><div class="value"><span class="px" data-m="10880000">₦16,320</span></div></div>
-    <div class="stat"><div class="label">Total orders</div><div class="value">4</div></div>
-    <div class="stat accent"><div class="label">In progress</div><div class="value">2</div></div>
-    <div class="stat"><div class="label">Completed</div><div class="value">2</div></div>
+  <div class="container backbar"><a class="back" href="#/index" data-back="1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>Back</a></div>
+  
+  
+<div class="container page">
+  <nav class="tabs" aria-label="Your account">
+  
+  <a href="#/dashboard" class="on">Overview</a>
+  
+  <a href="#/order" class="">New order</a>
+  
+  <a href="#/orders" class="">Orders</a>
+  
+  <a href="#/funds" class="">Wallet <span class="tab-bal"><span class="px" data-m="12400000">₦18,600</span></span></a>
+  
+  <a href="#/account" class="">Settings</a>
+  
+</nav>
+
+  <div class="welcome">
+    <div>
+      <p class="eyebrow">Your dashboard</p>
+      <h1>Welcome back, Amaka</h1>
+      <p class="muted" style="margin:0">2 orders in progress right now.</p>
+    </div>
+    <a class="btn primary big" href="#/order">Start a new order</a>
   </div>
 
-  <h2 style="font-size:1.2rem">Recent orders</h2>
+  <div class="dash-top">
+    <section class="wallet-hero" aria-label="Wallet">
+      <p class="eyebrow">Wallet balance</p>
+      <div class="big-num"><span class="px" data-m="12400000">₦18,600</span></div>
+      <p class="wallet-note">Top up in Naira from ₦500, or with crypto.</p>
+      <div class="chips">
+        <a class="chip-btn" href="#/funds?amount=1000">+ ₦1,000</a><a class="chip-btn" href="#/funds?amount=2000">+ ₦2,000</a><a class="chip-btn" href="#/funds?amount=5000">+ ₦5,000</a>
+        <a class="chip-btn solid" href="#/funds">Other amount</a>
+      </div>
+    </section>
+
+    <section class="card pulse" aria-label="Summary">
+      <div class="kv"><span>Total spent</span><strong><span class="px" data-m="10880000">₦16,320</span></strong></div>
+      <div class="kv"><span>Orders placed</span><strong>4</strong></div>
+      <div class="kv"><span>Units delivered</span><strong>800</strong></div>
+      <div class="kv"><span>In progress</span><strong>2</strong></div>
+    </section>
+  </div>
+
   
+  <h2 class="sec-title">Order again</h2>
+  <div class="grid cols-3 again">
+    
+    <a class="card tile" href="#/order?service=16&amp;qty=2000">
+      <strong>YouTube Views - Global</strong>
+      <span class="muted">Last time: 2,000</span><br>
+      <span class="from">Repeat this order &rarr;</span>
+    </a>
+    
+    <a class="card tile" href="#/order?service=4&amp;qty=300">
+      <strong>Instagram Likes - Global</strong>
+      <span class="muted">Last time: 300</span><br>
+      <span class="from">Repeat this order &rarr;</span>
+    </a>
+    
+    <a class="card tile" href="#/order?service=9&amp;qty=1000">
+      <strong>TikTok Likes - Global</strong>
+      <span class="muted">Last time: 1,000</span><br>
+      <span class="from">Repeat this order &rarr;</span>
+    </a>
+    
+  </div>
+  
+
+  <h2 class="sec-title">Running now</h2>
+  
+  <div class="grid cols-2">
+    
+    <article class="card order-card">
+      <div class="oc-head"><strong>YouTube Views - Global</strong><span class="badge badge-processing">In progress</span></div>
+      <p class="muted trunc" title="https://youtube.com/watch?v=xyz">https://youtube.com/watch?v=xyz</p>
+      <div class="bar-track" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"><span style="width:0%"></span></div>
+  <div class="bar-meta"><span>0 of 2,000 delivered</span><span>0%</span></div>
+      <div class="oc-foot"><span class="muted">Order #4 &middot; <span class="px" data-m="7040000">₦10,560</span></span><span class="muted">12 Oct 2026, 23:20</span></div>
+    </article>
+    
+    <article class="card order-card">
+      <div class="oc-head"><strong>TikTok Likes - Global</strong><span class="badge badge-processing">In progress</span></div>
+      <p class="muted trunc" title="https://tiktok.com/@amaka/video/1">https://tiktok.com/@amaka/video/1</p>
+      <div class="bar-track" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"><span style="width:0%"></span></div>
+  <div class="bar-meta"><span>0 of 1,000 delivered</span><span>0%</span></div>
+      <div class="oc-foot"><span class="muted">Order #2 &middot; <span class="px" data-m="1800000">₦2,700</span></span><span class="muted">12 Oct 2026, 23:20</span></div>
+    </article>
+    
+  </div>
+  
+
+  
+  <h2 class="sec-title">Recently finished</h2>
   <div class="table-wrap">
     <table>
       <thead><tr><th>#</th><th>Service</th><th class="num-col">Qty</th><th class="num-col">Charge</th><th>Status</th></tr></thead>
       <tbody>
-      
-        <tr>
-          <td>4</td>
-          <td>YouTube Views - Global<br><span class="muted trunc">https://youtube.com/watch?v=xyz</span></td>
-          <td class="num-col">2,000</td>
-          <td class="num-col"><span class="px" data-m="7040000">₦10,560</span></td>
-          <td><span class="badge badge-processing">In progress</span></td>
-        </tr>
       
         <tr>
           <td>3</td>
@@ -884,14 +1035,6 @@ tbody tr:nth-child(2) { animation-delay: .04s; } tbody tr:nth-child(3) { animati
           <td class="num-col">300</td>
           <td class="num-col"><span class="px" data-m="360000">₦540</span></td>
           <td><span class="badge badge-completed">Completed</span></td>
-        </tr>
-      
-        <tr>
-          <td>2</td>
-          <td>TikTok Likes - Global<br><span class="muted trunc">https://tiktok.com/@amaka/video/1</span></td>
-          <td class="num-col">1,000</td>
-          <td class="num-col"><span class="px" data-m="1800000">₦2,700</span></td>
-          <td><span class="badge badge-processing">In progress</span></td>
         </tr>
       
         <tr>
@@ -908,7 +1051,6 @@ tbody tr:nth-child(2) { animation-delay: .04s; } tbody tr:nth-child(3) { animati
   <p style="margin-top:12px"><a href="#/orders">See all orders &rarr;</a></p>
   
 </div>
-</div>
 
 </section>
 <section class="view" data-page="order" hidden>
@@ -916,17 +1058,23 @@ tbody tr:nth-child(2) { animation-delay: .04s; } tbody tr:nth-child(3) { animati
     
   
   
-<div class="container page account-layout">
-<aside class="side" aria-label="Your account">
-  <div class="who"><div class="avatar">A</div><div><strong>Amaka Obi</strong><span>amaka@example.com</span></div></div>
-  <a class="item" href="#/dashboard"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>Overview</a>
-  <a class="item" href="#/order"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg>New order</a>
-  <a class="item" href="#/orders"><svg viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13"/><circle cx="4" cy="6" r="1"/><circle cx="4" cy="12" r="1"/><circle cx="4" cy="18" r="1"/></svg>Orders</a>
-  <a class="item" href="#/funds"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="14" rx="3"/><path d="M3 10h18M16 15h2"/></svg>Add funds</a>
-  <a class="item" href="#/account"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg>Account</a>
-  <form method="post" data-go="index"><button class="btn small ghost">Log out</button></form>
-</aside>
-<div class="account-main">
+  <div class="container backbar"><a class="back" href="#/dashboard" data-back="1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>Back</a></div>
+  
+  
+<div class="container page">
+<nav class="tabs" aria-label="Your account">
+  
+  <a href="#/dashboard" class="">Overview</a>
+  
+  <a href="#/order" class="on">New order</a>
+  
+  <a href="#/orders" class="">Orders</a>
+  
+  <a href="#/funds" class="">Wallet <span class="tab-bal"><span class="px" data-m="12400000">₦18,600</span></span></a>
+  
+  <a href="#/account" class="">Settings</a>
+  
+</nav>
   <div class="page-head">
     <h1>New order</h1>
     <span class="chip">Balance <span class="px" data-m="12400000">₦18,600</span></span>
@@ -1024,7 +1172,6 @@ tbody tr:nth-child(2) { animation-delay: .04s; } tbody tr:nth-child(3) { animati
   </script>
   
 </div>
-</div>
 
 </section>
 <section class="view" data-page="orders" hidden>
@@ -1032,17 +1179,23 @@ tbody tr:nth-child(2) { animation-delay: .04s; } tbody tr:nth-child(3) { animati
     
   
   
-<div class="container page account-layout">
-<aside class="side" aria-label="Your account">
-  <div class="who"><div class="avatar">A</div><div><strong>Amaka Obi</strong><span>amaka@example.com</span></div></div>
-  <a class="item" href="#/dashboard"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>Overview</a>
-  <a class="item" href="#/order"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg>New order</a>
-  <a class="item" href="#/orders"><svg viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13"/><circle cx="4" cy="6" r="1"/><circle cx="4" cy="12" r="1"/><circle cx="4" cy="18" r="1"/></svg>Orders</a>
-  <a class="item" href="#/funds"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="14" rx="3"/><path d="M3 10h18M16 15h2"/></svg>Add funds</a>
-  <a class="item" href="#/account"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg>Account</a>
-  <form method="post" data-go="index"><button class="btn small ghost">Log out</button></form>
-</aside>
-<div class="account-main">
+  <div class="container backbar"><a class="back" href="#/dashboard" data-back="1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>Back</a></div>
+  
+  
+<div class="container page">
+<nav class="tabs" aria-label="Your account">
+  
+  <a href="#/dashboard" class="">Overview</a>
+  
+  <a href="#/order" class="">New order</a>
+  
+  <a href="#/orders" class="on">Orders</a>
+  
+  <a href="#/funds" class="">Wallet <span class="tab-bal"><span class="px" data-m="12400000">₦18,600</span></span></a>
+  
+  <a href="#/account" class="">Settings</a>
+  
+</nav>
   <div class="page-head">
     <h1>Your orders</h1>
     <a class="btn primary" href="#/order">New order</a>
@@ -1061,7 +1214,7 @@ tbody tr:nth-child(2) { animation-delay: .04s; } tbody tr:nth-child(3) { animati
           <td class="num-col"><span class="px" data-m="7040000">₦10,560</span>
             </td>
           <td><span class="badge badge-processing">In progress</span></td>
-          <td class="muted">12 Oct 2026, 11:52</td>
+          <td class="muted">12 Oct 2026, 23:20</td>
         </tr>
       
         <tr>
@@ -1072,7 +1225,7 @@ tbody tr:nth-child(2) { animation-delay: .04s; } tbody tr:nth-child(3) { animati
           <td class="num-col"><span class="px" data-m="360000">₦540</span>
             </td>
           <td><span class="badge badge-completed">Completed</span></td>
-          <td class="muted">12 Oct 2026, 11:52</td>
+          <td class="muted">12 Oct 2026, 23:20</td>
         </tr>
       
         <tr>
@@ -1083,7 +1236,7 @@ tbody tr:nth-child(2) { animation-delay: .04s; } tbody tr:nth-child(3) { animati
           <td class="num-col"><span class="px" data-m="1800000">₦2,700</span>
             </td>
           <td><span class="badge badge-processing">In progress</span></td>
-          <td class="muted">12 Oct 2026, 11:52</td>
+          <td class="muted">12 Oct 2026, 23:20</td>
         </tr>
       
         <tr>
@@ -1094,7 +1247,7 @@ tbody tr:nth-child(2) { animation-delay: .04s; } tbody tr:nth-child(3) { animati
           <td class="num-col"><span class="px" data-m="1680000">₦2,520</span>
             </td>
           <td><span class="badge badge-completed">Completed</span></td>
-          <td class="muted">12 Oct 2026, 11:52</td>
+          <td class="muted">12 Oct 2026, 23:20</td>
         </tr>
       
       </tbody>
@@ -1105,7 +1258,6 @@ tbody tr:nth-child(2) { animation-delay: .04s; } tbody tr:nth-child(3) { animati
 
   
 </div>
-</div>
 
 </section>
 <section class="view" data-page="funds" hidden>
@@ -1113,18 +1265,24 @@ tbody tr:nth-child(2) { animation-delay: .04s; } tbody tr:nth-child(3) { animati
     
   
   
-<div class="container page account-layout">
-<aside class="side" aria-label="Your account">
-  <div class="who"><div class="avatar">A</div><div><strong>Amaka Obi</strong><span>amaka@example.com</span></div></div>
-  <a class="item" href="#/dashboard"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>Overview</a>
-  <a class="item" href="#/order"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg>New order</a>
-  <a class="item" href="#/orders"><svg viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13"/><circle cx="4" cy="6" r="1"/><circle cx="4" cy="12" r="1"/><circle cx="4" cy="18" r="1"/></svg>Orders</a>
-  <a class="item" href="#/funds"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="14" rx="3"/><path d="M3 10h18M16 15h2"/></svg>Add funds</a>
-  <a class="item" href="#/account"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg>Account</a>
-  <form method="post" data-go="index"><button class="btn small ghost">Log out</button></form>
-</aside>
-<div class="account-main">
-  <div class="page-head"><h1>Add funds</h1></div>
+  <div class="container backbar"><a class="back" href="#/dashboard" data-back="1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>Back</a></div>
+  
+  
+<div class="container page">
+<nav class="tabs" aria-label="Your account">
+  
+  <a href="#/dashboard" class="">Overview</a>
+  
+  <a href="#/order" class="">New order</a>
+  
+  <a href="#/orders" class="">Orders</a>
+  
+  <a href="#/funds" class="on">Wallet <span class="tab-bal"><span class="px" data-m="12400000">₦18,600</span></span></a>
+  
+  <a href="#/account" class="">Settings</a>
+  
+</nav>
+  <div class="page-head"><h1>Wallet</h1></div>
   <div class="grid cols-2" style="margin-bottom:24px">
     <div class="stat balance-card"><div class="label">Wallet balance</div><div class="value"><span class="px" data-m="12400000">₦18,600</span></div></div>
     <div class="card">
@@ -1133,7 +1291,7 @@ tbody tr:nth-child(2) { animation-delay: .04s; } tbody tr:nth-child(3) { animati
       <form method="post" class="form">
         
         <label>Amount (₦) <span class="hint">Minimum ₦500 &middot; ₦1500 = $1</span>
-          <input name="amount_ngn" inputmode="decimal" placeholder="e.g. 5000" required></label>
+          <input name="amount_ngn" inputmode="decimal" placeholder="e.g. 5000" value="" required></label>
         <button class="btn primary">Continue to payment</button>
       </form>
       
@@ -1159,35 +1317,35 @@ tbody tr:nth-child(2) { animation-delay: .04s; } tbody tr:nth-child(3) { animati
       <tbody>
       
         <tr>
-          <td class="muted">12 Oct 2026, 11:52</td>
+          <td class="muted">12 Oct 2026, 23:20</td>
           <td>Top-up ₦30,000</td>
           <td class="num-col" style="color: var(--ok)">+<span class="px" data-m="20000000">₦30,000</span></td>
           <td class="num-col"><span class="px" data-m="20000000">₦30,000</span></td>
         </tr>
       
         <tr>
-          <td class="muted">12 Oct 2026, 11:52</td>
+          <td class="muted">12 Oct 2026, 23:20</td>
           <td>Order #4</td>
           <td class="num-col" style="color: var(--navy)"><span class="px" data-m="-7040000">₦-10,560</span></td>
           <td class="num-col"><span class="px" data-m="1520000">₦2,280</span></td>
         </tr>
       
         <tr>
-          <td class="muted">12 Oct 2026, 11:52</td>
+          <td class="muted">12 Oct 2026, 23:20</td>
           <td>Order #3</td>
           <td class="num-col" style="color: var(--navy)"><span class="px" data-m="-360000">₦-540</span></td>
           <td class="num-col"><span class="px" data-m="8560000">₦12,840</span></td>
         </tr>
       
         <tr>
-          <td class="muted">12 Oct 2026, 11:52</td>
+          <td class="muted">12 Oct 2026, 23:20</td>
           <td>Order #2</td>
           <td class="num-col" style="color: var(--navy)"><span class="px" data-m="-1800000">₦-2,700</span></td>
           <td class="num-col"><span class="px" data-m="8920000">₦13,380</span></td>
         </tr>
       
         <tr>
-          <td class="muted">12 Oct 2026, 11:52</td>
+          <td class="muted">12 Oct 2026, 23:20</td>
           <td>Order #1</td>
           <td class="num-col" style="color: var(--navy)"><span class="px" data-m="-1680000">₦-2,520</span></td>
           <td class="num-col"><span class="px" data-m="10720000">₦16,080</span></td>
@@ -1198,7 +1356,6 @@ tbody tr:nth-child(2) { animation-delay: .04s; } tbody tr:nth-child(3) { animati
   </div>
   
 </div>
-</div>
 
 </section>
 <section class="view" data-page="account" hidden>
@@ -1206,18 +1363,24 @@ tbody tr:nth-child(2) { animation-delay: .04s; } tbody tr:nth-child(3) { animati
     
   
   
-<div class="container page account-layout">
-<aside class="side" aria-label="Your account">
-  <div class="who"><div class="avatar">A</div><div><strong>Amaka Obi</strong><span>amaka@example.com</span></div></div>
-  <a class="item" href="#/dashboard"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>Overview</a>
-  <a class="item" href="#/order"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg>New order</a>
-  <a class="item" href="#/orders"><svg viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13"/><circle cx="4" cy="6" r="1"/><circle cx="4" cy="12" r="1"/><circle cx="4" cy="18" r="1"/></svg>Orders</a>
-  <a class="item" href="#/funds"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="14" rx="3"/><path d="M3 10h18M16 15h2"/></svg>Add funds</a>
-  <a class="item" href="#/account"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg>Account</a>
-  <form method="post" data-go="index"><button class="btn small ghost">Log out</button></form>
-</aside>
-<div class="account-main">
-  <div class="page-head"><h1>Account</h1></div>
+  <div class="container backbar"><a class="back" href="#/dashboard" data-back="1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>Back</a></div>
+  
+  
+<div class="container page">
+<nav class="tabs" aria-label="Your account">
+  
+  <a href="#/dashboard" class="">Overview</a>
+  
+  <a href="#/order" class="">New order</a>
+  
+  <a href="#/orders" class="">Orders</a>
+  
+  <a href="#/funds" class="">Wallet <span class="tab-bal"><span class="px" data-m="12400000">₦18,600</span></span></a>
+  
+  <a href="#/account" class="on">Settings</a>
+  
+</nav>
+  <div class="page-head"><h1>Settings</h1></div>
   <div class="card form wide">
     <p class="muted" style="margin:0">amaka@example.com</p>
     <h3>Change password</h3>
@@ -1231,10 +1394,17 @@ tbody tr:nth-child(2) { animation-delay: .04s; } tbody tr:nth-child(3) { animati
     <p class="muted small-print">Changing your password signs you out on other devices. Forgot your password? Contact support.</p>
   </div>
 </div>
-</div>
 
 </section>
 </main>
+<div id="boot" class="boot" role="status" aria-live="polite" hidden>
+  <div class="boot-inner">
+    <div class="boot-logo">
+<svg viewBox="0 0 120 120" width="88" height="88" aria-hidden="true" focusable="false"><rect width="120" height="120" rx="30" fill="#5B3DF5"/><path d="M32 72 L60 44 L88 72" fill="none" stroke="#fff" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/><path d="M32 96 L60 68 L88 96" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/><circle cx="60" cy="24" r="7" fill="#FFB020"/></svg></div>
+    <p class="boot-msg" id="boot-msg">Please wait&hellip;</p>
+    <div class="boot-bar"><span></span></div>
+  </div>
+</div>
 <footer class="site-footer">
   <div class="container foot">
     <div>
@@ -1266,14 +1436,33 @@ tbody tr:nth-child(2) { animation-delay: .04s; } tbody tr:nth-child(3) { animati
     var idx = Array.prototype.indexOf.call(el.parentNode.children, el);
     el.style.setProperty('--d', Math.min(idx, 6) * 0.06 + 's');
   });
-  if (reduce || !('IntersectionObserver' in window)) {
-    targets.forEach(function (el) { el.classList.add('in'); });
-  } else {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
-    targets.forEach(function (el) { io.observe(el); });
-  }
+  // landing-page sections reveal as you scroll; account pages (data you came for) animate in straight away
+  var io = (!reduce && 'IntersectionObserver' in window) ? new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' }) : null;
+  targets.forEach(function (el) {
+    if (io && el.closest('.section')) io.observe(el);
+    else requestAnimationFrame(function () { el.classList.add('in'); });
+  });
+
+  // back buttons: go to the page the visitor came from, or to the fallback link if they landed here directly
+  d.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('[data-back]');
+    if (!a || e.metaKey || e.ctrlKey || e.shiftKey) return;
+    var same = false; try { same = d.referrer && new URL(d.referrer).origin === location.origin; } catch (x) {}
+    if (same && history.length > 1) { e.preventDefault(); history.back(); }
+  });
+
+  // logo loading screen: forms marked data-delay="3500" show it for that long before they are sent
+  d.addEventListener('submit', function (e) {
+    var f = e.target, ms = parseInt(f.getAttribute('data-delay') || '0', 10), boot = d.getElementById('boot');
+    if (!ms || !boot || f.dataset.booting) return;
+    e.preventDefault();
+    f.dataset.booting = '1';
+    var msg = d.getElementById('boot-msg'); if (msg) msg.innerHTML = f.getAttribute('data-msg') || 'Please wait\u2026';
+    boot.style.setProperty('--boot-ms', ms + 'ms'); boot.hidden = false;
+    setTimeout(function () { f.submit(); }, ms);
+  }, true);
 
   // stop double-submits (payments!) and show a spinner while a form is sending
   d.addEventListener('submit', function (e) {
@@ -1283,13 +1472,17 @@ tbody tr:nth-child(2) { animation-delay: .04s; } tbody tr:nth-child(3) { animati
     setTimeout(function () { delete f.dataset.sent; b.classList.remove('busy'); }, 8000);
   });
   window.addEventListener('pageshow', function (e) {
-    if (e.persisted) d.querySelectorAll('.busy').forEach(function (b) { b.classList.remove('busy'); });
+    if (e.persisted) {
+      d.querySelectorAll('.busy').forEach(function (b) { b.classList.remove('busy'); });
+      var boot = d.getElementById('boot'); if (boot) boot.hidden = true;
+      d.querySelectorAll('[data-booting]').forEach(function (f) { delete f.dataset.booting; });
+    }
   });
 })();
 
 </script>
 <script>
-var NAMES = ["index", "services", "login", "register", "terms", "dashboard", "order", "orders", "funds", "account"], TITLES = {"index": "Boostrize: grow your social media", "services": "Services &amp; prices | Boostrize", "login": "Log in | Boostrize", "register": "Create account | Boostrize", "terms": "Terms &amp; refunds | Boostrize", "dashboard": "Dashboard | Boostrize", "order": "New order | Boostrize", "orders": "Orders | Boostrize", "funds": "Add funds | Boostrize", "account": "Account | Boostrize"};
+var NAMES = ["index", "services", "login", "register", "terms", "forgot", "forgot-sent", "dashboard", "order", "orders", "funds", "account"], TITLES = {"index": "Boostrize: grow your social media", "services": "Services &amp; prices | Boostrize", "login": "Log in | Boostrize", "register": "Create account | Boostrize", "terms": "Terms &amp; refunds | Boostrize", "forgot": "Forgot password | Boostrize", "forgot-sent": "Forgot password | Boostrize", "dashboard": "Dashboard | Boostrize", "order": "New order | Boostrize", "orders": "Orders | Boostrize", "funds": "Add funds | Boostrize", "account": "Account | Boostrize"};
 
 (function () {
   var d = document, RATE = 1500, AUTHPAGES = ['dashboard','order','orders','funds','account'];
@@ -1337,15 +1530,28 @@ var NAMES = ["index", "services", "login", "register", "terms", "dashboard", "or
     window.scrollTo(0, 0); paint();
   }
   function names() { return NAMES; }
+  var bootEl = d.getElementById('boot'), navs = 0;
+  window.addEventListener('hashchange', function () { navs++; });
+  d.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('[data-back]');
+    if (a && !e.defaultPrevented && navs > 0) { e.preventDefault(); history.back(); }
+  });
   d.addEventListener('submit', function (e) {
     var f = e.target;
     e.preventDefault(); e.stopImmediatePropagation();
     if (f.classList.contains('seg')) { cur = (e.submitter && e.submitter.value) || 'ngn'; store('bz_cur', cur); paint(); return; }
     if ((f.method || '').toLowerCase() === 'get') { go('services', new URLSearchParams(new FormData(f)).toString()); return; }
-    var act = f.getAttribute('data-go');
-    if (act === 'dashboard') { logged = true; store('bz_logged', '1'); go('dashboard'); return; }
-    if (act === 'index') { logged = false; store('bz_logged', null); go('index'); return; }
-    toast('Demo only – nothing was sent.');
+    var act = f.getAttribute('data-go'), ms = parseInt(f.getAttribute('data-d') || '0', 10);
+    if (!act) { toast('Demo only - nothing was sent.'); return; }
+    function finish() {
+      if (act === 'dashboard') { logged = true; store('bz_logged', '1'); }
+      if (act === 'index') { logged = false; store('bz_logged', null); }
+      go(act); bootEl.hidden = true;
+    }
+    if (ms) {   /* logo loading screen, like the live site */
+      d.getElementById('boot-msg').innerHTML = f.getAttribute('data-msg') || 'Please wait...';
+      bootEl.style.setProperty('--boot-ms', ms + 'ms'); bootEl.hidden = false; setTimeout(finish, ms);
+    } else finish();
   }, true);
   d.addEventListener('change', function (e) {
     if (e.target.matches('[data-page=services] select[name=platform]')) go('services', new URLSearchParams(new FormData(e.target.form)).toString());
